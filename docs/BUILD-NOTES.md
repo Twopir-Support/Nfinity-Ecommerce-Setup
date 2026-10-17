@@ -67,3 +67,12 @@ objects, logic and demo data deploy and load first either way.
 |---|---|---|
 | `NFT_Account_Record_Page`, `NFT_Order_Record_Page`, `NFT_Product_Record_Page` | `[lst:dynamicRelatedList] attribute [parentFieldApiName]: Could not find entity [null]` | `parentFieldApiName` must name the page's own record as `Object.Id`. It is now `Account.Id`, `Order.Id` and `Product2.Id` (it held the child's lookup field before). |
 | `NFT_Commerce_Hub_Utility_Bar` | `Invalid property [height] in component [flowruntime:interview]` | Removed `height` and `width` from the 3 flow utility items, so panels use the default size. They can be resized in App Manager → Utility Items. |
+
+### Validation 4 (2026-10-17) – 4 component errors
+
+| Component | Error | Fix |
+|---|---|---|
+| `NFT_Account_Record_Page` | `[lst:dynamicRelatedList] attribute [relatedListFieldAliases]: Could not find column [OrderNumber] in related list [Orders]` | Standard fields in a dynamic related list use the related-list column names, not field API names. Orders columns are now `ORDERS.ORDER_NUMBER`, `ORDERS.TOTAL_AMOUNT`, `ORDERS.EFFECTIVE_DATE` (also the sort field on the Orders tab). Contacts columns are now `FULL_NAME`, `CONTACT.EMAIL`, `CONTACT.PHONE1`. Custom fields (`NFT_…__c`) stay as API names. |
+| `NFT_Commerce_Hub_Utility_Bar` | `Invalid property [icon] in component [flowruntime:interview]` | `icon` and `label` belong to the utility item, not the flow component, so they now have `<type>decorator</type>`. |
+| `NFT_Order_Record_Page` | `[relatedListDisplayType]: The related lists display value you entered is invalid` | Shipments list changed from `TILE` (not a valid value) to `ADVGRID`, like the other lists. |
+| `NFT_Product_Record_Page` | `[relatedListApiName]: Could not find related list [OrderItems] for entity [Product2]` | Product2 has no Order Products related list (OrderItem links to the product through the price book entry). The "Open order lines" tab and its list were removed. The page keeps the "Stock by location" and "Details" tabs. |

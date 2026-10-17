@@ -60,3 +60,10 @@ objects, logic and demo data deploy and load first either way.
 | Lightning pages (Account, Order, Product, Operations Home, Utility Bar) | `region … specifies mode 'REPLACE' but a parent region enabling that mode doesn't exist` | Removed `<mode>Replace</mode>` from every region. It only applies to pages that extend a parent page. |
 | `NFT_Operations_Home` | `couldn't retrieve the design time component information for component flexipage:dashboard` | Component changed to `desktopDashboards:embeddedDashboard`, which is the standard Dashboard component. |
 | `NFT_Commerce_Hub_User` (permission set) | `no ApexClass named NFT_CommerceService found` | **Removed the permission set from the project at the owner's request.** The file was deleted, it was taken out of both manifests, and the "Assign permission set" step was removed from `deploy.sh` and `deploy.ps1` (now 6 steps). Access now comes from the users' profiles. Custom objects use Public Read/Write sharing. |
+
+### Validation 3 (2026-10-17) – 4 component errors
+
+| Component | Error | Fix |
+|---|---|---|
+| `NFT_Account_Record_Page`, `NFT_Order_Record_Page`, `NFT_Product_Record_Page` | `[lst:dynamicRelatedList] attribute [parentFieldApiName]: Could not find entity [null]` | `parentFieldApiName` must name the page's own record as `Object.Id`. It is now `Account.Id`, `Order.Id` and `Product2.Id` (it held the child's lookup field before). |
+| `NFT_Commerce_Hub_Utility_Bar` | `Invalid property [height] in component [flowruntime:interview]` | Removed `height` and `width` from the 3 flow utility items, so panels use the default size. They can be resized in App Manager → Utility Items. |

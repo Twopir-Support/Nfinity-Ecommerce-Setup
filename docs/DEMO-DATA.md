@@ -4,6 +4,17 @@ The demo data lives in the `NFT_DemoData_*` static resources and is loaded by `N
 Every date is an offset from the **day you load it**, so the "Today", "24h" and "30 days" numbers
 are only right on the load day. **Run the refresh on the morning of a client demo.**
 
+## One shot: insert all demo data
+
+```
+./scripts/import-demo-data.ps1 -Org nft-demo     # Windows
+./scripts/import-demo-data.sh nft-demo           # macOS / Linux / Git Bash
+```
+
+Assigns `NFT_Commerce_Hub_Access`, then: empty org → re-dates and tree-imports `data/` (2,921 records) and
+recalculates totals; org with demo data → clears demo transactions and reloads them with the Apex upsert
+loader. Ends with the CHECK lines.
+
 ## JSON data files (`data/`)
 
 `data/` holds the demo data as `sf data import tree` files, one per object (split into files of up to

@@ -113,7 +113,7 @@ public without sharing class NFT_TriggerHandler {
             entries.put(e.Product2Id, e);
         }
         List<PricebookEntry> inserts = new List<PricebookEntry>();
-        List<PricebookEntry> activate = new List<PricebookEntry>();
+        List<PricebookEntry> toActivate = new List<PricebookEntry>();
         for (OrderItem i : todo) {
             PricebookEntry e = entries.get(i.Product2Id);
             if (e == null) {
@@ -122,11 +122,11 @@ public without sharing class NFT_TriggerHandler {
                 inserts.add(e);
             } else if (!e.IsActive) {
                 e.IsActive = true;
-                activate.add(e);
+                toActivate.add(e);
             }
         }
         insert inserts;
-        update activate;
+        update toActivate;
         for (OrderItem i : todo) { i.PricebookEntryId = entries.get(i.Product2Id).Id; }
     }
 }

@@ -98,3 +98,11 @@ with a refresh option for demo day, and `docs/DEMO-DATA.md` listing the records 
   (`NFT_TriggerHandler.defaultPricebook` / `defaultPricebookEntries`): NFT orders and lines inserted without a
   price book get the Standard Price Book, and missing standard prices are created from the line price.
   Covered by the new test `NFT_CommerceTests.importedOrderGetsStandardPricebook`.
+
+### Validation 6 (2026-10-17) – 7 component errors
+
+| Component | Error | Fix |
+|---|---|---|
+| `NFT_TriggerHandler` | `Identifier name is reserved: activate (116:30)` | Local list renamed from `activate` to `toActivate`; `activate` is a reserved word in Apex. |
+| `NFT_DemoDataLoader`, all 4 `NFT_…Trigger`s | `Dependent class is invalid`, `Variable does not exist: NFT_TriggerHandler` | Follow-on errors from `NFT_TriggerHandler`; no change needed. |
+| `NFT_Account_Record_Page` | `[flexipage:reportChart] attribute [reportFilter]: Unknown filter: AccountId` | Removed the "Customer Orders by Channel" report chart from the page. Without the account filter it would show every customer's orders. The page keeps the Open Orders and Orders lists. To add the chart back: App Builder → Report Chart → report `NFT_Customer_Orders_by_Channel` → pick the Account filter from the drop-down, which lists the valid values for this org. |

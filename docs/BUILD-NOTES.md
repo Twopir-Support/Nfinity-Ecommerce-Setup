@@ -59,7 +59,7 @@ objects, logic and demo data deploy and load first either way.
 | Dashboard `NFT_Commerce_Operations` | `no Report named NFT_Demo_Reports/NFT_New_Orders_Today found` | Follow-on error from the report; no change needed. |
 | Lightning pages (Account, Order, Product, Operations Home, Utility Bar) | `region … specifies mode 'REPLACE' but a parent region enabling that mode doesn't exist` | Removed `<mode>Replace</mode>` from every region. It only applies to pages that extend a parent page. |
 | `NFT_Operations_Home` | `couldn't retrieve the design time component information for component flexipage:dashboard` | Component changed to `desktopDashboards:embeddedDashboard`, which is the standard Dashboard component. |
-| `NFT_Commerce_Hub_User` (permission set) | `no ApexClass named NFT_CommerceService found` | **Removed the permission set from the project at the owner's request.** The file was deleted, it was taken out of both manifests, and the "Assign permission set" step was removed from `deploy.sh` and `deploy.ps1` (now 6 steps). Access now comes from the users' profiles. Custom objects use Public Read/Write sharing. |
+| `NFT_Commerce_Hub_User` (permission set) | `no ApexClass named NFT_CommerceService found` | **Removed the permission set from the project at the owner's request** (two new permission sets were added later; see "Permission sets added back"). The file was deleted, it was taken out of both manifests, and the "Assign permission set" step was removed from `deploy.sh` and `deploy.ps1` (now 6 steps). Access now comes from the users' profiles. Custom objects use Public Read/Write sharing. |
 
 ### Validation 3 (2026-10-17) – 4 component errors
 
@@ -106,3 +106,18 @@ with a refresh option for demo day, and `docs/DEMO-DATA.md` listing the records 
 | `NFT_TriggerHandler` | `Identifier name is reserved: activate (116:30)` | Local list renamed from `activate` to `toActivate`; `activate` is a reserved word in Apex. |
 | `NFT_DemoDataLoader`, all 4 `NFT_…Trigger`s | `Dependent class is invalid`, `Variable does not exist: NFT_TriggerHandler` | Follow-on errors from `NFT_TriggerHandler`; no change needed. |
 | `NFT_Account_Record_Page` | `[flexipage:reportChart] attribute [reportFilter]: Unknown filter: AccountId` | Removed the "Customer Orders by Channel" report chart from the page. Without the account filter it would show every customer's orders. The page keeps the Open Orders and Orders lists. To add the chart back: App Builder → Report Chart → report `NFT_Customer_Orders_by_Channel` → pick the Account filter from the drop-down, which lists the valid values for this org. |
+
+### Permission sets added back (2026-10-17)
+
+The 5 NFT tabs (Operations, NFT Inventory Balances, NFT Shipments, NFT Sync Logs, NFT Invoices) did not show
+in the app: new tabs deploy as Hidden for every profile, and the project had no profile or permission set.
+At the user's request two permission sets were added. Neither references Apex, so the old
+`no ApexClass named NFT_CommerceService` error cannot recur.
+
+| Permission set | Phase | Gives |
+|---|---|---|
+| `NFT_Commerce_Hub_Access` | core (`package-1-core.xml`) | Create/Read/Edit/Delete/View All/Modify All on the 4 NFT objects; read + edit on 70 NFT fields and read on 21 formula/roll-up fields (Account, Order, Order Product, Product and the NFT objects); the 4 object tabs Visible. Required and master-detail fields are left out (always accessible). |
+| `NFT_Commerce_Hub_App` | UI (`package-2-ui.xml`) | The `NFT_Commerce_Integration_Hub` app and the Operations tab Visible. |
+
+`deploy.sh` / `deploy.ps1` assign `NFT_Commerce_Hub_Access` right after the core deploy (so the JSON data import
+has field access) and `NFT_Commerce_Hub_App` after the UI deploy.

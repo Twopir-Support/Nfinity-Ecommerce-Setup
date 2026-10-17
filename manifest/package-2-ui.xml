@@ -42,5 +42,9 @@
         <members>NFT_Sync_Logs</members>
         <name>ReportType</name>
     </types>
+    <types>
+        <members>NFT_Commerce_Hub_App</members>
+        <name>PermissionSet</name>
+    </types>
     <version>62.0</version>
 </Package>

@@ -202,5 +202,9 @@
         <members>NFT_DemoData_Orders</members>
         <name>StaticResource</name>
     </types>
+    <types>
+        <members>NFT_Commerce_Hub_Access</members>
+        <name>PermissionSet</name>
+    </types>
     <version>62.0</version>
 </Package>

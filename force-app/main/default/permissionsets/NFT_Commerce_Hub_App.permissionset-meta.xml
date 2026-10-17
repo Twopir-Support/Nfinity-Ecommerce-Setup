@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>NFT_Commerce_Integration_Hub</application>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <description>NFT Commerce Integration Hub: the app and the Operations tab. Assigned by scripts/deploy.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>NFT Commerce Hub App</label>
+    <tabSettings>
+        <tab>NFT_Operations_Home</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+</PermissionSet>

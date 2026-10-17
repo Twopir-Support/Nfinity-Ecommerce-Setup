@@ -16,6 +16,8 @@ if (-not $rec.IsSandbox -and $rec.OrganizationType -ne "Developer Edition") {
 Write-Host "Target org: $Org ($($rec.OrganizationType), sandbox=$($rec.IsSandbox))"
 Step "1/6 Enable Orders and Path" { sf project deploy start --source-dir force-app/main/default/settings --target-org $Org --wait 20 }
 Step "2/6 Deploy core: objects, fields, Apex, flows, actions, LWC, data files" { sf project deploy start --manifest manifest/package-1-core.xml --target-org $Org --wait 60 }
+Write-Host "`n=== 2/6 Assign permission set NFT_Commerce_Hub_Access ===" -ForegroundColor Cyan
+sf org assign permset --name NFT_Commerce_Hub_Access --target-org $Org; if ($LASTEXITCODE -ne 0) { Write-Host "(already assigned)" }
 function ApexLoad {
     Get-ChildItem scripts/apex/load/*.apex | Sort-Object { [int]($_.Name.Split('-')[0]) } | ForEach-Object {
         $f = $_.FullName
@@ -33,6 +35,8 @@ if ($existing -eq 0) {
     else { Write-Host "Tree import failed; completing with the Apex loader (upserts, no duplicates)" -ForegroundColor Yellow; ApexLoad }
 } else { ApexLoad }
 Step "4/6 Deploy UI: pages, app, utility bar, path, reports, dashboard" { sf project deploy start --manifest manifest/package-2-ui.xml --target-org $Org --wait 60 }
+Write-Host "`n=== 4/6 Assign permission set NFT_Commerce_Hub_App ===" -ForegroundColor Cyan
+sf org assign permset --name NFT_Commerce_Hub_App --target-org $Org; if ($LASTEXITCODE -ne 0) { Write-Host "(already assigned)" }
 Step "5/6 Run Apex tests" { sf apex run test --class-names NFT_CommerceTests --target-org $Org --wait 20 --result-format human }
 Step "6/6 Verify demo data" { sf apex run --file scripts/apex/verify.apex --target-org $Org | Select-String "CHECK" }
 Write-Host "`nDone. Open the app:  sf org open --target-org $Org --path /lightning/n/NFT_Operations_Home" -ForegroundColor Green

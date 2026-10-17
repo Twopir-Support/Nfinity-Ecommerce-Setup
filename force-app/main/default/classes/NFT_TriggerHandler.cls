@@ -2,6 +2,8 @@
  * NFT demo: keeps roll-up style totals that standard roll-ups cannot do
  * (Account totals, Product totals, Order failed-sync count).
  * Only touches records that belong to the NFT demo (orders with an External Order ID).
+ * Also fills the Standard Price Book on demo orders and lines inserted without one
+ * (the data/ JSON tree import cannot know the org's price book Id).
  */
 public without sharing class NFT_TriggerHandler {
 
@@ -81,5 +83,50 @@ public without sharing class NFT_TriggerHandler {
             if (o.NFT_Failed_Sync_Count__c != counts.get(o.Id)) { changed.add(new Order(Id = o.Id, NFT_Failed_Sync_Count__c = counts.get(o.Id))); }
         }
         if (!changed.isEmpty()) { update changed; }
+    }
+
+    // before insert on Order: NFT demo orders without a price book get the standard one
+    public static void defaultPricebook(List<Order> rows) {
+        List<Order> todo = new List<Order>();
+        for (Order o : rows) { if (o.Pricebook2Id == null && o.NFT_External_Order_Id__c != null) { todo.add(o); } }
+        if (todo.isEmpty()) { return; }
+        Id pb = NFT_CommerceService.standardPricebookId();
+        if (!Test.isRunningTest()) {
+            Pricebook2 std = [SELECT Id, IsActive FROM Pricebook2 WHERE Id = :pb];
+            if (!std.IsActive) { std.IsActive = true; update std; }
+        }
+        for (Order o : todo) { o.Pricebook2Id = pb; }
+    }
+
+    // before insert on OrderItem: lines with only Product2Id get the standard price book entry,
+    // which is created from the line's unit price if the product has none yet
+    public static void defaultPricebookEntries(List<OrderItem> rows) {
+        List<OrderItem> todo = new List<OrderItem>();
+        Set<Id> productIds = new Set<Id>();
+        for (OrderItem i : rows) {
+            if (i.PricebookEntryId == null && i.Product2Id != null) { todo.add(i); productIds.add(i.Product2Id); }
+        }
+        if (todo.isEmpty()) { return; }
+        Id pb = NFT_CommerceService.standardPricebookId();
+        Map<Id, PricebookEntry> entries = new Map<Id, PricebookEntry>();
+        for (PricebookEntry e : [SELECT Id, Product2Id, IsActive FROM PricebookEntry WHERE Pricebook2Id = :pb AND Product2Id IN :productIds]) {
+            entries.put(e.Product2Id, e);
+        }
+        List<PricebookEntry> inserts = new List<PricebookEntry>();
+        List<PricebookEntry> activate = new List<PricebookEntry>();
+        for (OrderItem i : todo) {
+            PricebookEntry e = entries.get(i.Product2Id);
+            if (e == null) {
+                e = new PricebookEntry(Pricebook2Id = pb, Product2Id = i.Product2Id, UnitPrice = i.UnitPrice, IsActive = true, UseStandardPrice = false);
+                entries.put(i.Product2Id, e);
+                inserts.add(e);
+            } else if (!e.IsActive) {
+                e.IsActive = true;
+                activate.add(e);
+            }
+        }
+        insert inserts;
+        update activate;
+        for (OrderItem i : todo) { i.PricebookEntryId = entries.get(i.Product2Id).Id; }
     }
 }

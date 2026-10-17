@@ -1,0 +1,85 @@
+[
+  {
+    "sobject": "Product2",
+    "saveRefs": true,
+    "resolveRefs": true,
+    "files": [
+      "Product2.json"
+    ]
+  },
+  {
+    "sobject": "Account",
+    "saveRefs": true,
+    "resolveRefs": true,
+    "files": [
+      "Account.json"
+    ]
+  },
+  {
+    "sobject": "Contact",
+    "saveRefs": true,
+    "resolveRefs": true,
+    "files": [
+      "Contact.json"
+    ]
+  },
+  {
+    "sobject": "NFT_Inventory_Balance__c",
+    "saveRefs": true,
+    "resolveRefs": true,
+    "files": [
+      "NFT_Inventory_Balance__c.json"
+    ]
+  },
+  {
+    "sobject": "Order",
+    "saveRefs": true,
+    "resolveRefs": true,
+    "files": [
+      "Order-1.json",
+      "Order-2.json"
+    ]
+  },
+  {
+    "sobject": "OrderItem",
+    "saveRefs": true,
+    "resolveRefs": true,
+    "files": [
+      "OrderItem-1.json",
+      "OrderItem-2.json"
+    ]
+  },
+  {
+    "sobject": "NFT_Shipment__c",
+    "saveRefs": true,
+    "resolveRefs": true,
+    "files": [
+      "NFT_Shipment__c-1.json",
+      "NFT_Shipment__c-2.json"
+    ]
+  },
+  {
+    "sobject": "NFT_Invoice__c",
+    "saveRefs": true,
+    "resolveRefs": true,
+    "files": [
+      "NFT_Invoice__c-1.json",
+      "NFT_Invoice__c-2.json"
+    ]
+  },
+  {
+    "sobject": "NFT_Sync_Log__c",
+    "saveRefs": true,
+    "resolveRefs": true,
+    "files": [
+      "NFT_Sync_Log__c-1.json",
+      "NFT_Sync_Log__c-2.json",
+      "NFT_Sync_Log__c-3.json",
+      "NFT_Sync_Log__c-4.json",
+      "NFT_Sync_Log__c-5.json",
+      "NFT_Sync_Log__c-6.json",
+      "NFT_Sync_Log__c-7.json",
+      "NFT_Sync_Log__c-8.json"
+    ]
+  }
+]

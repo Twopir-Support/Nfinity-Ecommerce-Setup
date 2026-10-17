@@ -86,3 +86,15 @@ objects, logic and demo data deploy and load first either way.
 
 Also added `scripts/load-demo-data.sh` / `.ps1` to load the demo data without a metadata deploy,
 with a refresh option for demo day, and `docs/DEMO-DATA.md` listing the records and dashboard values.
+
+### Demo data as JSON tree-import files (2026-10-17)
+
+- Added `data/` (one JSON file per object + `nft-demo-data-plan.json`, 2,921 records) and
+  `scripts/build-demo-data.js`, which generates it from the `NFT_DemoData_*` static resources with dates
+  from the demo day.
+- `deploy.sh` / `deploy.ps1` step 3 now imports `data/` with `sf data import tree` into an empty org,
+  falling back to the Apex upsert loader when demo data exists or the import fails.
+- `NFT_OrderTrigger` and `NFT_OrderItemTrigger` got a `before insert` step
+  (`NFT_TriggerHandler.defaultPricebook` / `defaultPricebookEntries`): NFT orders and lines inserted without a
+  price book get the Standard Price Book, and missing standard prices are created from the line price.
+  Covered by the new test `NFT_CommerceTests.importedOrderGetsStandardPricebook`.

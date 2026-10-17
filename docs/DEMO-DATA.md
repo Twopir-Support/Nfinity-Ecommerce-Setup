@@ -4,6 +4,31 @@ The demo data lives in the `NFT_DemoData_*` static resources and is loaded by `N
 Every date is an offset from the **day you load it**, so the "Today", "24h" and "30 days" numbers
 are only right on the load day. **Run the refresh on the morning of a client demo.**
 
+## JSON data files (`data/`)
+
+`data/` holds the demo data as `sf data import tree` files, one per object (split into files of up to
+200 records, the Tree API limit), plus the plan `data/nft-demo-data-plan.json` that imports them in order
+and links the references (Product → Account → Contact → Inventory Balance → Order → Order Product →
+Shipment → Invoice → Sync Log).
+
+`scripts/deploy.ps1` / `deploy.sh` regenerate the files dated from today and import them right after the
+core metadata, so **one deploy command deploys and inserts the data**. To do it by hand:
+
+```bash
+node scripts/build-demo-data.js                     # re-date to today (or pass a demo day: 2026-10-21)
+sf data import tree --plan data/nft-demo-data-plan.json --target-org nft-demo
+sf apex run --file scripts/apex/load/7-finish.apex --target-org nft-demo   # product stock totals
+```
+
+Notes:
+- The tree import **inserts**, so use it on an org without NFT demo data. The deploy script checks this and
+  uses the Apex upsert loader instead when demo orders already exist or the import fails part-way.
+- Orders and order lines carry no price book Id (it differs per org). `NFT_OrderTrigger` and
+  `NFT_OrderItemTrigger` fill in the Standard Price Book and create the product's standard price from
+  the line price.
+- The user running the import needs edit access to the NFT fields (profile field-level security).
+  The Apex loader runs in system mode and does not.
+
 ## Load / refresh
 
 | When | Windows | macOS / Linux / Git Bash |

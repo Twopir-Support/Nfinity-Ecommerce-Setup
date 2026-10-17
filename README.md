@@ -42,6 +42,12 @@ Source in Manifest to Org**, run each file in `scripts/apex/load/` in number ord
 **SFDX: Execute Anonymous Apex with Editor Contents**, then deploy
 `manifest/package-2-ui.xml` the same way.
 
+## Demo data JSON (`data/`)
+
+The deploy script inserts the demo data from `data/` with `sf data import tree` in the same run.
+Manual import: `sf data import tree --plan data/nft-demo-data-plan.json --target-org nft-demo`.
+Details: `docs/DEMO-DATA.md`.
+
 ## Load or refresh only the demo data
 
 Already deployed? `./scripts/load-demo-data.ps1 -Org nft-demo` (Windows) or

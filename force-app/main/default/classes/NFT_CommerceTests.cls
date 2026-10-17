@@ -135,4 +135,19 @@ private class NFT_CommerceTests {
         Test.stopTest();
         System.assert(threw, 'Unknown SKU must throw');
     }
+
+    @IsTest
+    static void importedOrderGetsStandardPricebook() {
+        Product2 p = new Product2(Name = 'Nova Cheer Shoe – Black – 6', ProductCode = 'NOVA-BLK-06', NFT_SKU__c = 'NOVA-BLK-06', IsActive = true);
+        insert p;
+        Account a = [SELECT Id FROM Account WHERE NFT_Customer_Key__c = 'SC-TEST-1'];
+        Test.startTest();
+        Order o = new Order(AccountId = a.Id, EffectiveDate = Date.today(), Status = 'Draft', NFT_External_Order_Id__c = 'SHP-T6');
+        insert o;
+        insert new OrderItem(OrderId = o.Id, Product2Id = p.Id, Quantity = 2, UnitPrice = 99.99);
+        Test.stopTest();
+        System.assertEquals(Test.getStandardPricebookId(), [SELECT Pricebook2Id FROM Order WHERE Id = :o.Id].Pricebook2Id);
+        System.assertEquals(99.99, [SELECT UnitPrice FROM PricebookEntry WHERE Product2Id = :p.Id].UnitPrice);
+        System.assertEquals(199.98, [SELECT TotalAmount FROM Order WHERE Id = :o.Id].TotalAmount);
+    }
 }

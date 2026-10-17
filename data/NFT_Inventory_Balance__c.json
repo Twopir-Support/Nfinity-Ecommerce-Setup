@@ -1,0 +1,1092 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_APEX_WHT_06_SM"
+      },
+      "Name": "APEX-WHT-06 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "APEX-WHT-06-SM",
+      "NFT_Product__c": "@Prod_APEX_WHT_06",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 183,
+      "NFT_Qty_Reserved__c": 0,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 24,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_APEX_WHT_06_FBA"
+      },
+      "Name": "APEX-WHT-06 – Amazon FBA",
+      "NFT_Unique_Key__c": "APEX-WHT-06-FBA",
+      "NFT_Product__c": "@Prod_APEX_WHT_06",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 66,
+      "NFT_Qty_Reserved__c": 1,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 25,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_APEX_WHT_07_SM"
+      },
+      "Name": "APEX-WHT-07 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "APEX-WHT-07-SM",
+      "NFT_Product__c": "@Prod_APEX_WHT_07",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 6,
+      "NFT_Qty_Reserved__c": 6,
+      "NFT_Qty_Inbound__c": 48,
+      "NFT_Reorder_Point__c": 10,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_APEX_WHT_07_FBA"
+      },
+      "Name": "APEX-WHT-07 – Amazon FBA",
+      "NFT_Unique_Key__c": "APEX-WHT-07-FBA",
+      "NFT_Product__c": "@Prod_APEX_WHT_07",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 42,
+      "NFT_Qty_Reserved__c": 3,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 15,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_APEX_WHT_08_SM"
+      },
+      "Name": "APEX-WHT-08 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "APEX-WHT-08-SM",
+      "NFT_Product__c": "@Prod_APEX_WHT_08",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 208,
+      "NFT_Qty_Reserved__c": 2,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 25,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_APEX_WHT_08_FBA"
+      },
+      "Name": "APEX-WHT-08 – Amazon FBA",
+      "NFT_Unique_Key__c": "APEX-WHT-08-FBA",
+      "NFT_Product__c": "@Prod_APEX_WHT_08",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 121,
+      "NFT_Qty_Reserved__c": 8,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 12,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_APEX_BLK_06_SM"
+      },
+      "Name": "APEX-BLK-06 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "APEX-BLK-06-SM",
+      "NFT_Product__c": "@Prod_APEX_BLK_06",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 131,
+      "NFT_Qty_Reserved__c": 2,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 15,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_APEX_BLK_06_FBA"
+      },
+      "Name": "APEX-BLK-06 – Amazon FBA",
+      "NFT_Unique_Key__c": "APEX-BLK-06-FBA",
+      "NFT_Product__c": "@Prod_APEX_BLK_06",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 84,
+      "NFT_Qty_Reserved__c": 5,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 24,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_APEX_BLK_07_SM"
+      },
+      "Name": "APEX-BLK-07 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "APEX-BLK-07-SM",
+      "NFT_Product__c": "@Prod_APEX_BLK_07",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 109,
+      "NFT_Qty_Reserved__c": 0,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 20,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_APEX_BLK_07_FBA"
+      },
+      "Name": "APEX-BLK-07 – Amazon FBA",
+      "NFT_Unique_Key__c": "APEX-BLK-07-FBA",
+      "NFT_Product__c": "@Prod_APEX_BLK_07",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 65,
+      "NFT_Qty_Reserved__c": 0,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 12,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_APEX_BLK_08_SM"
+      },
+      "Name": "APEX-BLK-08 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "APEX-BLK-08-SM",
+      "NFT_Product__c": "@Prod_APEX_BLK_08",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 224,
+      "NFT_Qty_Reserved__c": 5,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 22,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_APEX_BLK_08_FBA"
+      },
+      "Name": "APEX-BLK-08 – Amazon FBA",
+      "NFT_Unique_Key__c": "APEX-BLK-08-FBA",
+      "NFT_Product__c": "@Prod_APEX_BLK_08",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 8,
+      "NFT_Qty_Reserved__c": 1,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 10,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_GLID_WHT_06_SM"
+      },
+      "Name": "GLID-WHT-06 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "GLID-WHT-06-SM",
+      "NFT_Product__c": "@Prod_GLID_WHT_06",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 300,
+      "NFT_Qty_Reserved__c": 5,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 25,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_GLID_WHT_06_FBA"
+      },
+      "Name": "GLID-WHT-06 – Amazon FBA",
+      "NFT_Unique_Key__c": "GLID-WHT-06-FBA",
+      "NFT_Product__c": "@Prod_GLID_WHT_06",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 117,
+      "NFT_Qty_Reserved__c": 2,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 17,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_GLID_WHT_07_SM"
+      },
+      "Name": "GLID-WHT-07 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "GLID-WHT-07-SM",
+      "NFT_Product__c": "@Prod_GLID_WHT_07",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 197,
+      "NFT_Qty_Reserved__c": 5,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 21,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_GLID_WHT_07_FBA"
+      },
+      "Name": "GLID-WHT-07 – Amazon FBA",
+      "NFT_Unique_Key__c": "GLID-WHT-07-FBA",
+      "NFT_Product__c": "@Prod_GLID_WHT_07",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 122,
+      "NFT_Qty_Reserved__c": 5,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 23,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_GLID_WHT_08_SM"
+      },
+      "Name": "GLID-WHT-08 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "GLID-WHT-08-SM",
+      "NFT_Product__c": "@Prod_GLID_WHT_08",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 194,
+      "NFT_Qty_Reserved__c": 5,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 12,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_GLID_WHT_08_FBA"
+      },
+      "Name": "GLID-WHT-08 – Amazon FBA",
+      "NFT_Unique_Key__c": "GLID-WHT-08-FBA",
+      "NFT_Product__c": "@Prod_GLID_WHT_08",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 55,
+      "NFT_Qty_Reserved__c": 2,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 21,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_GLID_BLK_06_SM"
+      },
+      "Name": "GLID-BLK-06 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "GLID-BLK-06-SM",
+      "NFT_Product__c": "@Prod_GLID_BLK_06",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 253,
+      "NFT_Qty_Reserved__c": 6,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 11,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_GLID_BLK_06_FBA"
+      },
+      "Name": "GLID-BLK-06 – Amazon FBA",
+      "NFT_Unique_Key__c": "GLID-BLK-06-FBA",
+      "NFT_Product__c": "@Prod_GLID_BLK_06",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 93,
+      "NFT_Qty_Reserved__c": 4,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 19,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_GLID_BLK_07_SM"
+      },
+      "Name": "GLID-BLK-07 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "GLID-BLK-07-SM",
+      "NFT_Product__c": "@Prod_GLID_BLK_07",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 121,
+      "NFT_Qty_Reserved__c": 4,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 23,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_GLID_BLK_07_FBA"
+      },
+      "Name": "GLID-BLK-07 – Amazon FBA",
+      "NFT_Unique_Key__c": "GLID-BLK-07-FBA",
+      "NFT_Product__c": "@Prod_GLID_BLK_07",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 138,
+      "NFT_Qty_Reserved__c": 1,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 14,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_GLID_BLK_08_SM"
+      },
+      "Name": "GLID-BLK-08 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "GLID-BLK-08-SM",
+      "NFT_Product__c": "@Prod_GLID_BLK_08",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 254,
+      "NFT_Qty_Reserved__c": 0,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 19,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_GLID_BLK_08_FBA"
+      },
+      "Name": "GLID-BLK-08 – Amazon FBA",
+      "NFT_Unique_Key__c": "GLID-BLK-08-FBA",
+      "NFT_Product__c": "@Prod_GLID_BLK_08",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 9,
+      "NFT_Qty_Reserved__c": 2,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 12,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_TITN_WHT_06_SM"
+      },
+      "Name": "TITN-WHT-06 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "TITN-WHT-06-SM",
+      "NFT_Product__c": "@Prod_TITN_WHT_06",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 14,
+      "NFT_Qty_Reserved__c": 5,
+      "NFT_Qty_Inbound__c": 24,
+      "NFT_Reorder_Point__c": 10,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_TITN_WHT_06_FBA"
+      },
+      "Name": "TITN-WHT-06 – Amazon FBA",
+      "NFT_Unique_Key__c": "TITN-WHT-06-FBA",
+      "NFT_Product__c": "@Prod_TITN_WHT_06",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 145,
+      "NFT_Qty_Reserved__c": 7,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 21,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_TITN_WHT_07_SM"
+      },
+      "Name": "TITN-WHT-07 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "TITN-WHT-07-SM",
+      "NFT_Product__c": "@Prod_TITN_WHT_07",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 105,
+      "NFT_Qty_Reserved__c": 1,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 13,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_TITN_WHT_07_FBA"
+      },
+      "Name": "TITN-WHT-07 – Amazon FBA",
+      "NFT_Unique_Key__c": "TITN-WHT-07-FBA",
+      "NFT_Product__c": "@Prod_TITN_WHT_07",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 118,
+      "NFT_Qty_Reserved__c": 2,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 20,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_TITN_WHT_08_SM"
+      },
+      "Name": "TITN-WHT-08 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "TITN-WHT-08-SM",
+      "NFT_Product__c": "@Prod_TITN_WHT_08",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 87,
+      "NFT_Qty_Reserved__c": 7,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 14,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_TITN_WHT_08_FBA"
+      },
+      "Name": "TITN-WHT-08 – Amazon FBA",
+      "NFT_Unique_Key__c": "TITN-WHT-08-FBA",
+      "NFT_Product__c": "@Prod_TITN_WHT_08",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 34,
+      "NFT_Qty_Reserved__c": 3,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 25,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_TITN_BLK_06_SM"
+      },
+      "Name": "TITN-BLK-06 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "TITN-BLK-06-SM",
+      "NFT_Product__c": "@Prod_TITN_BLK_06",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 118,
+      "NFT_Qty_Reserved__c": 0,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 22,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_TITN_BLK_06_FBA"
+      },
+      "Name": "TITN-BLK-06 – Amazon FBA",
+      "NFT_Unique_Key__c": "TITN-BLK-06-FBA",
+      "NFT_Product__c": "@Prod_TITN_BLK_06",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 38,
+      "NFT_Qty_Reserved__c": 8,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 12,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_TITN_BLK_07_SM"
+      },
+      "Name": "TITN-BLK-07 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "TITN-BLK-07-SM",
+      "NFT_Product__c": "@Prod_TITN_BLK_07",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 131,
+      "NFT_Qty_Reserved__c": 7,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 22,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_TITN_BLK_07_FBA"
+      },
+      "Name": "TITN-BLK-07 – Amazon FBA",
+      "NFT_Unique_Key__c": "TITN-BLK-07-FBA",
+      "NFT_Product__c": "@Prod_TITN_BLK_07",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 150,
+      "NFT_Qty_Reserved__c": 1,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 13,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_TITN_BLK_08_SM"
+      },
+      "Name": "TITN-BLK-08 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "TITN-BLK-08-SM",
+      "NFT_Product__c": "@Prod_TITN_BLK_08",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 154,
+      "NFT_Qty_Reserved__c": 4,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 10,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_TITN_BLK_08_FBA"
+      },
+      "Name": "TITN-BLK-08 – Amazon FBA",
+      "NFT_Unique_Key__c": "TITN-BLK-08-FBA",
+      "NFT_Product__c": "@Prod_TITN_BLK_08",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 21,
+      "NFT_Qty_Reserved__c": 1,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 16,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_PULS_WHT_06_SM"
+      },
+      "Name": "PULS-WHT-06 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "PULS-WHT-06-SM",
+      "NFT_Product__c": "@Prod_PULS_WHT_06",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 90,
+      "NFT_Qty_Reserved__c": 0,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 13,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_PULS_WHT_06_FBA"
+      },
+      "Name": "PULS-WHT-06 – Amazon FBA",
+      "NFT_Unique_Key__c": "PULS-WHT-06-FBA",
+      "NFT_Product__c": "@Prod_PULS_WHT_06",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 149,
+      "NFT_Qty_Reserved__c": 7,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 24,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_PULS_WHT_07_SM"
+      },
+      "Name": "PULS-WHT-07 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "PULS-WHT-07-SM",
+      "NFT_Product__c": "@Prod_PULS_WHT_07",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 120,
+      "NFT_Qty_Reserved__c": 11,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 25,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_PULS_WHT_07_FBA"
+      },
+      "Name": "PULS-WHT-07 – Amazon FBA",
+      "NFT_Unique_Key__c": "PULS-WHT-07-FBA",
+      "NFT_Product__c": "@Prod_PULS_WHT_07",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 99,
+      "NFT_Qty_Reserved__c": 3,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 21,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_PULS_WHT_08_SM"
+      },
+      "Name": "PULS-WHT-08 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "PULS-WHT-08-SM",
+      "NFT_Product__c": "@Prod_PULS_WHT_08",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 294,
+      "NFT_Qty_Reserved__c": 5,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 22,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_PULS_WHT_08_FBA"
+      },
+      "Name": "PULS-WHT-08 – Amazon FBA",
+      "NFT_Unique_Key__c": "PULS-WHT-08-FBA",
+      "NFT_Product__c": "@Prod_PULS_WHT_08",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 60,
+      "NFT_Qty_Reserved__c": 7,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 25,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_PULS_BLK_06_SM"
+      },
+      "Name": "PULS-BLK-06 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "PULS-BLK-06-SM",
+      "NFT_Product__c": "@Prod_PULS_BLK_06",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 250,
+      "NFT_Qty_Reserved__c": 4,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 13,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_PULS_BLK_06_FBA"
+      },
+      "Name": "PULS-BLK-06 – Amazon FBA",
+      "NFT_Unique_Key__c": "PULS-BLK-06-FBA",
+      "NFT_Product__c": "@Prod_PULS_BLK_06",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 52,
+      "NFT_Qty_Reserved__c": 8,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 25,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_PULS_BLK_07_SM"
+      },
+      "Name": "PULS-BLK-07 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "PULS-BLK-07-SM",
+      "NFT_Product__c": "@Prod_PULS_BLK_07",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 114,
+      "NFT_Qty_Reserved__c": 2,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 16,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_PULS_BLK_07_FBA"
+      },
+      "Name": "PULS-BLK-07 – Amazon FBA",
+      "NFT_Unique_Key__c": "PULS-BLK-07-FBA",
+      "NFT_Product__c": "@Prod_PULS_BLK_07",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 135,
+      "NFT_Qty_Reserved__c": 4,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 10,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_PULS_BLK_08_SM"
+      },
+      "Name": "PULS-BLK-08 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "PULS-BLK-08-SM",
+      "NFT_Product__c": "@Prod_PULS_BLK_08",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 65,
+      "NFT_Qty_Reserved__c": 0,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 24,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_PULS_BLK_08_FBA"
+      },
+      "Name": "PULS-BLK-08 – Amazon FBA",
+      "NFT_Unique_Key__c": "PULS-BLK-08-FBA",
+      "NFT_Product__c": "@Prod_PULS_BLK_08",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 58,
+      "NFT_Qty_Reserved__c": 4,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 24,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_NOVA_WHT_06_SM"
+      },
+      "Name": "NOVA-WHT-06 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "NOVA-WHT-06-SM",
+      "NFT_Product__c": "@Prod_NOVA_WHT_06",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 52,
+      "NFT_Qty_Reserved__c": 2,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 11,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_NOVA_WHT_06_FBA"
+      },
+      "Name": "NOVA-WHT-06 – Amazon FBA",
+      "NFT_Unique_Key__c": "NOVA-WHT-06-FBA",
+      "NFT_Product__c": "@Prod_NOVA_WHT_06",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 117,
+      "NFT_Qty_Reserved__c": 8,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 21,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_NOVA_WHT_07_SM"
+      },
+      "Name": "NOVA-WHT-07 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "NOVA-WHT-07-SM",
+      "NFT_Product__c": "@Prod_NOVA_WHT_07",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 283,
+      "NFT_Qty_Reserved__c": 3,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 16,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_NOVA_WHT_07_FBA"
+      },
+      "Name": "NOVA-WHT-07 – Amazon FBA",
+      "NFT_Unique_Key__c": "NOVA-WHT-07-FBA",
+      "NFT_Product__c": "@Prod_NOVA_WHT_07",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 141,
+      "NFT_Qty_Reserved__c": 8,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 13,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_NOVA_WHT_08_SM"
+      },
+      "Name": "NOVA-WHT-08 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "NOVA-WHT-08-SM",
+      "NFT_Product__c": "@Prod_NOVA_WHT_08",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 221,
+      "NFT_Qty_Reserved__c": 8,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 21,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_NOVA_WHT_08_FBA"
+      },
+      "Name": "NOVA-WHT-08 – Amazon FBA",
+      "NFT_Unique_Key__c": "NOVA-WHT-08-FBA",
+      "NFT_Product__c": "@Prod_NOVA_WHT_08",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 127,
+      "NFT_Qty_Reserved__c": 7,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 23,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_NOVA_BLK_06_SM"
+      },
+      "Name": "NOVA-BLK-06 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "NOVA-BLK-06-SM",
+      "NFT_Product__c": "@Prod_NOVA_BLK_06",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 11,
+      "NFT_Qty_Reserved__c": 3,
+      "NFT_Qty_Inbound__c": 30,
+      "NFT_Reorder_Point__c": 10,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_NOVA_BLK_06_FBA"
+      },
+      "Name": "NOVA-BLK-06 – Amazon FBA",
+      "NFT_Unique_Key__c": "NOVA-BLK-06-FBA",
+      "NFT_Product__c": "@Prod_NOVA_BLK_06",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 113,
+      "NFT_Qty_Reserved__c": 7,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 25,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_NOVA_BLK_07_SM"
+      },
+      "Name": "NOVA-BLK-07 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "NOVA-BLK-07-SM",
+      "NFT_Product__c": "@Prod_NOVA_BLK_07",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 280,
+      "NFT_Qty_Reserved__c": 7,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 14,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_NOVA_BLK_07_FBA"
+      },
+      "Name": "NOVA-BLK-07 – Amazon FBA",
+      "NFT_Unique_Key__c": "NOVA-BLK-07-FBA",
+      "NFT_Product__c": "@Prod_NOVA_BLK_07",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 149,
+      "NFT_Qty_Reserved__c": 5,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 24,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_NOVA_BLK_08_SM"
+      },
+      "Name": "NOVA-BLK-08 – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "NOVA-BLK-08-SM",
+      "NFT_Product__c": "@Prod_NOVA_BLK_08",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 44,
+      "NFT_Qty_Reserved__c": 7,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 19,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_NOVA_BLK_08_FBA"
+      },
+      "Name": "NOVA-BLK-08 – Amazon FBA",
+      "NFT_Unique_Key__c": "NOVA-BLK-08-FBA",
+      "NFT_Product__c": "@Prod_NOVA_BLK_08",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 42,
+      "NFT_Qty_Reserved__c": 0,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 25,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_SHBP_TEA_OS_SM"
+      },
+      "Name": "SHBP-TEA-OS – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "SHBP-TEA-OS-SM",
+      "NFT_Product__c": "@Prod_SHBP_TEA_OS",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 31,
+      "NFT_Qty_Reserved__c": 4,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 15,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_SHBP_TEA_OS_FBA"
+      },
+      "Name": "SHBP-TEA-OS – Amazon FBA",
+      "NFT_Unique_Key__c": "SHBP-TEA-OS-FBA",
+      "NFT_Product__c": "@Prod_SHBP_TEA_OS",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 110,
+      "NFT_Qty_Reserved__c": 4,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 21,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_SHBP_RED_OS_SM"
+      },
+      "Name": "SHBP-RED-OS – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "SHBP-RED-OS-SM",
+      "NFT_Product__c": "@Prod_SHBP_RED_OS",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 227,
+      "NFT_Qty_Reserved__c": 7,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 22,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_SHBP_RED_OS_FBA"
+      },
+      "Name": "SHBP-RED-OS – Amazon FBA",
+      "NFT_Unique_Key__c": "SHBP-RED-OS-FBA",
+      "NFT_Product__c": "@Prod_SHBP_RED_OS",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 116,
+      "NFT_Qty_Reserved__c": 7,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 21,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_SHBP_BLU_OS_SM"
+      },
+      "Name": "SHBP-BLU-OS – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "SHBP-BLU-OS-SM",
+      "NFT_Product__c": "@Prod_SHBP_BLU_OS",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 101,
+      "NFT_Qty_Reserved__c": 2,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 16,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_SHBP_BLU_OS_FBA"
+      },
+      "Name": "SHBP-BLU-OS – Amazon FBA",
+      "NFT_Unique_Key__c": "SHBP-BLU-OS-FBA",
+      "NFT_Product__c": "@Prod_SHBP_BLU_OS",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 98,
+      "NFT_Qty_Reserved__c": 8,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 13,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_SHBP_PUR_OS_SM"
+      },
+      "Name": "SHBP-PUR-OS – ShipMonk Warehouse",
+      "NFT_Unique_Key__c": "SHBP-PUR-OS-SM",
+      "NFT_Product__c": "@Prod_SHBP_PUR_OS",
+      "NFT_Location__c": "ShipMonk Warehouse",
+      "NFT_Location_Type__c": "3PL Warehouse",
+      "NFT_Qty_On_Hand__c": 101,
+      "NFT_Qty_Reserved__c": 8,
+      "NFT_Qty_Inbound__c": 0,
+      "NFT_Reorder_Point__c": 23,
+      "NFT_Last_Updated_At__c": "2026-10-17T09:20:00.000Z"
+    },
+    {
+      "attributes": {
+        "type": "NFT_Inventory_Balance__c",
+        "referenceId": "Bal_SHBP_PUR_OS_FBA"
+      },
+      "Name": "SHBP-PUR-OS – Amazon FBA",
+      "NFT_Unique_Key__c": "SHBP-PUR-OS-FBA",
+      "NFT_Product__c": "@Prod_SHBP_PUR_OS",
+      "NFT_Location__c": "Amazon FBA",
+      "NFT_Location_Type__c": "Marketplace Fulfilment",
+      "NFT_Qty_On_Hand__c": 7,
+      "NFT_Qty_Reserved__c": 0,
+      "NFT_Qty_Inbound__c": 12,
+      "NFT_Reorder_Point__c": 8,
+      "NFT_Last_Updated_At__c": "2026-10-17T07:45:00.000Z"
+    }
+  ]
+}

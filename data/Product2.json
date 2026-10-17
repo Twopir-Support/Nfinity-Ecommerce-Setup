@@ -1,0 +1,480 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_APEX_WHT_06"
+      },
+      "Name": "Apex Cheer Shoe – White – 6",
+      "ProductCode": "APEX-WHT-06",
+      "NFT_SKU__c": "APEX-WHT-06",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Apex",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "6",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_APEX_WHT_07"
+      },
+      "Name": "Apex Cheer Shoe – White – 7",
+      "ProductCode": "APEX-WHT-07",
+      "NFT_SKU__c": "APEX-WHT-07",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Apex",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "7",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_APEX_WHT_08"
+      },
+      "Name": "Apex Cheer Shoe – White – 8",
+      "ProductCode": "APEX-WHT-08",
+      "NFT_SKU__c": "APEX-WHT-08",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Apex",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "8",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_APEX_BLK_06"
+      },
+      "Name": "Apex Cheer Shoe – Black – 6",
+      "ProductCode": "APEX-BLK-06",
+      "NFT_SKU__c": "APEX-BLK-06",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Apex",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "6",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_APEX_BLK_07"
+      },
+      "Name": "Apex Cheer Shoe – Black – 7",
+      "ProductCode": "APEX-BLK-07",
+      "NFT_SKU__c": "APEX-BLK-07",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Apex",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "7",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_APEX_BLK_08"
+      },
+      "Name": "Apex Cheer Shoe – Black – 8",
+      "ProductCode": "APEX-BLK-08",
+      "NFT_SKU__c": "APEX-BLK-08",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Apex",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "8",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_GLID_WHT_06"
+      },
+      "Name": "Glide Cheer Shoe – White – 6",
+      "ProductCode": "GLID-WHT-06",
+      "NFT_SKU__c": "GLID-WHT-06",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Glide",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "6",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_GLID_WHT_07"
+      },
+      "Name": "Glide Cheer Shoe – White – 7",
+      "ProductCode": "GLID-WHT-07",
+      "NFT_SKU__c": "GLID-WHT-07",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Glide",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "7",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_GLID_WHT_08"
+      },
+      "Name": "Glide Cheer Shoe – White – 8",
+      "ProductCode": "GLID-WHT-08",
+      "NFT_SKU__c": "GLID-WHT-08",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Glide",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "8",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_GLID_BLK_06"
+      },
+      "Name": "Glide Cheer Shoe – Black – 6",
+      "ProductCode": "GLID-BLK-06",
+      "NFT_SKU__c": "GLID-BLK-06",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Glide",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "6",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_GLID_BLK_07"
+      },
+      "Name": "Glide Cheer Shoe – Black – 7",
+      "ProductCode": "GLID-BLK-07",
+      "NFT_SKU__c": "GLID-BLK-07",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Glide",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "7",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_GLID_BLK_08"
+      },
+      "Name": "Glide Cheer Shoe – Black – 8",
+      "ProductCode": "GLID-BLK-08",
+      "NFT_SKU__c": "GLID-BLK-08",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Glide",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "8",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_TITN_WHT_06"
+      },
+      "Name": "Titan Mid-Top – White – 6",
+      "ProductCode": "TITN-WHT-06",
+      "NFT_SKU__c": "TITN-WHT-06",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Titan",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "6",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_TITN_WHT_07"
+      },
+      "Name": "Titan Mid-Top – White – 7",
+      "ProductCode": "TITN-WHT-07",
+      "NFT_SKU__c": "TITN-WHT-07",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Titan",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "7",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_TITN_WHT_08"
+      },
+      "Name": "Titan Mid-Top – White – 8",
+      "ProductCode": "TITN-WHT-08",
+      "NFT_SKU__c": "TITN-WHT-08",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Titan",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "8",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_TITN_BLK_06"
+      },
+      "Name": "Titan Mid-Top – Black – 6",
+      "ProductCode": "TITN-BLK-06",
+      "NFT_SKU__c": "TITN-BLK-06",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Titan",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "6",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_TITN_BLK_07"
+      },
+      "Name": "Titan Mid-Top – Black – 7",
+      "ProductCode": "TITN-BLK-07",
+      "NFT_SKU__c": "TITN-BLK-07",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Titan",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "7",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_TITN_BLK_08"
+      },
+      "Name": "Titan Mid-Top – Black – 8",
+      "ProductCode": "TITN-BLK-08",
+      "NFT_SKU__c": "TITN-BLK-08",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Titan",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "8",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_PULS_WHT_06"
+      },
+      "Name": "Pulse Cheer Shoe – White – 6",
+      "ProductCode": "PULS-WHT-06",
+      "NFT_SKU__c": "PULS-WHT-06",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Pulse",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "6",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_PULS_WHT_07"
+      },
+      "Name": "Pulse Cheer Shoe – White – 7",
+      "ProductCode": "PULS-WHT-07",
+      "NFT_SKU__c": "PULS-WHT-07",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Pulse",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "7",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_PULS_WHT_08"
+      },
+      "Name": "Pulse Cheer Shoe – White – 8",
+      "ProductCode": "PULS-WHT-08",
+      "NFT_SKU__c": "PULS-WHT-08",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Pulse",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "8",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_PULS_BLK_06"
+      },
+      "Name": "Pulse Cheer Shoe – Black – 6",
+      "ProductCode": "PULS-BLK-06",
+      "NFT_SKU__c": "PULS-BLK-06",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Pulse",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "6",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_PULS_BLK_07"
+      },
+      "Name": "Pulse Cheer Shoe – Black – 7",
+      "ProductCode": "PULS-BLK-07",
+      "NFT_SKU__c": "PULS-BLK-07",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Pulse",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "7",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_PULS_BLK_08"
+      },
+      "Name": "Pulse Cheer Shoe – Black – 8",
+      "ProductCode": "PULS-BLK-08",
+      "NFT_SKU__c": "PULS-BLK-08",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Pulse",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "8",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_NOVA_WHT_06"
+      },
+      "Name": "Nova Cheer Shoe – White – 6",
+      "ProductCode": "NOVA-WHT-06",
+      "NFT_SKU__c": "NOVA-WHT-06",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Nova",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "6",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_NOVA_WHT_07"
+      },
+      "Name": "Nova Cheer Shoe – White – 7",
+      "ProductCode": "NOVA-WHT-07",
+      "NFT_SKU__c": "NOVA-WHT-07",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Nova",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "7",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_NOVA_WHT_08"
+      },
+      "Name": "Nova Cheer Shoe – White – 8",
+      "ProductCode": "NOVA-WHT-08",
+      "NFT_SKU__c": "NOVA-WHT-08",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Nova",
+      "NFT_Colour__c": "White",
+      "NFT_Size__c": "8",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_NOVA_BLK_06"
+      },
+      "Name": "Nova Cheer Shoe – Black – 6",
+      "ProductCode": "NOVA-BLK-06",
+      "NFT_SKU__c": "NOVA-BLK-06",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Nova",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "6",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_NOVA_BLK_07"
+      },
+      "Name": "Nova Cheer Shoe – Black – 7",
+      "ProductCode": "NOVA-BLK-07",
+      "NFT_SKU__c": "NOVA-BLK-07",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Nova",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "7",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_NOVA_BLK_08"
+      },
+      "Name": "Nova Cheer Shoe – Black – 8",
+      "ProductCode": "NOVA-BLK-08",
+      "NFT_SKU__c": "NOVA-BLK-08",
+      "NFT_Family__c": "Shoes",
+      "NFT_Style__c": "Nova",
+      "NFT_Colour__c": "Black",
+      "NFT_Size__c": "8",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_SHBP_TEA_OS"
+      },
+      "Name": "Shimmer Backpack – Teal",
+      "ProductCode": "SHBP-TEA-OS",
+      "NFT_SKU__c": "SHBP-TEA-OS",
+      "NFT_Family__c": "Backpacks",
+      "NFT_Style__c": "Shimmer",
+      "NFT_Colour__c": "Teal",
+      "NFT_Size__c": "One Size",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_SHBP_RED_OS"
+      },
+      "Name": "Shimmer Backpack – Red",
+      "ProductCode": "SHBP-RED-OS",
+      "NFT_SKU__c": "SHBP-RED-OS",
+      "NFT_Family__c": "Backpacks",
+      "NFT_Style__c": "Shimmer",
+      "NFT_Colour__c": "Red",
+      "NFT_Size__c": "One Size",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_SHBP_BLU_OS"
+      },
+      "Name": "Shimmer Backpack – Blue",
+      "ProductCode": "SHBP-BLU-OS",
+      "NFT_SKU__c": "SHBP-BLU-OS",
+      "NFT_Family__c": "Backpacks",
+      "NFT_Style__c": "Shimmer",
+      "NFT_Colour__c": "Blue",
+      "NFT_Size__c": "One Size",
+      "IsActive": true
+    },
+    {
+      "attributes": {
+        "type": "Product2",
+        "referenceId": "Prod_SHBP_PUR_OS"
+      },
+      "Name": "Shimmer Backpack – Purple",
+      "ProductCode": "SHBP-PUR-OS",
+      "NFT_SKU__c": "SHBP-PUR-OS",
+      "NFT_Family__c": "Backpacks",
+      "NFT_Style__c": "Shimmer",
+      "NFT_Colour__c": "Purple",
+      "NFT_Size__c": "One Size",
+      "IsActive": true
+    }
+  ]
+}

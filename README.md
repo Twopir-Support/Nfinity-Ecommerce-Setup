@@ -33,8 +33,7 @@ the target screens.
    - macOS / Linux / Git Bash: `./scripts/deploy.sh nft-demo`
 
    The script refuses production orgs, then: enables Orders and Path → deploys the core
-   metadata → loads the demo data → deploys the pages, app and reports → assigns the
-   permission set → runs the Apex tests → prints the verification checks.
+   metadata → loads the demo data → deploys the pages, app and reports → runs the Apex tests → prints the verification checks.
 5. Open the app: `sf org open --target-org nft-demo --path /lightning/n/NFT_Operations_Home`
    and compare with `docs/ui-reference.html`.
 

@@ -202,10 +202,6 @@
         <name>ListView</name>
     </types>
     <types>
-        <members>NFT_Commerce_Hub_User</members>
-        <name>PermissionSet</name>
-    </types>
-    <types>
         <members>Account.NFT_Simulate_New_Order</members>
         <members>NFT_Sync_Log__c.NFT_Retry</members>
         <members>Order.NFT_Deliver</members>

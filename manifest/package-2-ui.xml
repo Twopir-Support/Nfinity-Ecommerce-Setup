@@ -22,10 +22,6 @@
         <name>FlexiPage</name>
     </types>
     <types>
-        <members>NFT_Commerce_Hub_User</members>
-        <name>PermissionSet</name>
-    </types>
-    <types>
         <members>NFT_Demo_Reports</members>
         <members>NFT_Demo_Reports/NFT_At_Risk_Orders</members>
         <members>NFT_Demo_Reports/NFT_Awaiting_Shipment</members>

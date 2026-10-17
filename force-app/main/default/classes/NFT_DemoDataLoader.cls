@@ -16,7 +16,7 @@ public without sharing class NFT_DemoDataLoader {
         StaticResource sr = [SELECT Body FROM StaticResource WHERE Name = :name LIMIT 1];
         return (Map<String, Object>) JSON.deserializeUntyped(sr.Body.toString());
     }
-    private static List<Object> list(Map<String, Object> m, String key) { return (List<Object>) m.get(key); }
+    private static List<Object> items(Map<String, Object> m, String key) { return (List<Object>) m.get(key); }
     private static String str(Map<String, Object> m, String key) { Object o = m.get(key); return o == null ? null : String.valueOf(o); }
     private static Decimal num(Map<String, Object> m, String key) {
         Object o = m.get(key);
@@ -39,7 +39,7 @@ public without sharing class NFT_DemoDataLoader {
 
         List<Product2> products = new List<Product2>();
         Map<String, Decimal> price = new Map<String, Decimal>();
-        for (Object o : list(data, 'products')) {
+        for (Object o : items(data, 'products')) {
             Map<String, Object> m = (Map<String, Object>) o;
             products.add(new Product2(Name = str(m, 'name'), ProductCode = str(m, 'sku'), NFT_SKU__c = str(m, 'sku'),
                 NFT_Family__c = str(m, 'family'), NFT_Style__c = str(m, 'style'), NFT_Colour__c = str(m, 'colour'),
@@ -62,7 +62,7 @@ public without sharing class NFT_DemoDataLoader {
 
         List<Account> accounts = new List<Account>();
         Map<String, Map<String, Object>> byKey = new Map<String, Map<String, Object>>();
-        for (Object o : list(data, 'accounts')) {
+        for (Object o : items(data, 'accounts')) {
             Map<String, Object> m = (Map<String, Object>) o;
             String key = str(m, 'key');
             byKey.put(key, m);
@@ -91,7 +91,7 @@ public without sharing class NFT_DemoDataLoader {
         insert contacts;
 
         List<NFT_Inventory_Balance__c> balances = new List<NFT_Inventory_Balance__c>();
-        for (Object o : list(data, 'balances')) {
+        for (Object o : items(data, 'balances')) {
             Map<String, Object> m = (Map<String, Object>) o;
             balances.add(new NFT_Inventory_Balance__c(Name = str(m, 'sku') + ' – ' + str(m, 'loc'), NFT_Unique_Key__c = str(m, 'key'),
                 NFT_Product__r = new Product2(NFT_SKU__c = str(m, 'sku')), NFT_Location__c = str(m, 'loc'),
@@ -104,7 +104,7 @@ public without sharing class NFT_DemoDataLoader {
     // ------------------------------------------------------------------ orders + lines
     public static void loadOrders() {
         Map<String, Object> data = resource('NFT_DemoData_Orders');
-        List<Object> rows = list(data, 'orders');
+        List<Object> rows = items(data, 'orders');
 
         Set<String> keys = new Set<String>();
         Set<String> exts = new Set<String>();
@@ -143,7 +143,7 @@ public without sharing class NFT_DemoDataLoader {
         Set<String> lineKeys = new Set<String>();
         for (Object o : rows) {
             Map<String, Object> m = (Map<String, Object>) o;
-            for (Object l : list(m, 'lines')) { lineKeys.add(str(m, 'ext') + '-' + str((Map<String, Object>) l, 'no')); }
+            for (Object l : items(m, 'lines')) { lineKeys.add(str(m, 'ext') + '-' + str((Map<String, Object>) l, 'no')); }
         }
         Map<String, Id> existingLine = new Map<String, Id>();
         for (OrderItem i : [SELECT Id, NFT_Line_Key__c FROM OrderItem WHERE NFT_Line_Key__c IN :lineKeys]) { existingLine.put(i.NFT_Line_Key__c, i.Id); }
@@ -153,7 +153,7 @@ public without sharing class NFT_DemoDataLoader {
         for (Object o : rows) {
             Map<String, Object> m = (Map<String, Object>) o;
             String ext = str(m, 'ext');
-            for (Object lo : list(m, 'lines')) {
+            for (Object lo : items(m, 'lines')) {
                 Map<String, Object> l = (Map<String, Object>) lo;
                 String key = ext + '-' + str(l, 'no');
                 OrderItem item = new OrderItem(Quantity = num(l, 'q'), UnitPrice = num(l, 'p'), NFT_Line_No__c = str(l, 'no'),
@@ -179,7 +179,7 @@ public without sharing class NFT_DemoDataLoader {
     public static void loadFulfilment() {
         Map<String, Object> data = resource('NFT_DemoData_Fulfilment');
         List<NFT_Shipment__c> ships = new List<NFT_Shipment__c>();
-        for (Object o : list(data, 'shipments')) {
+        for (Object o : items(data, 'shipments')) {
             Map<String, Object> m = (Map<String, Object>) o;
             ships.add(new NFT_Shipment__c(Name = str(m, 'name'), NFT_Tracking_Number__c = str(m, 'trk'),
                 NFT_Order__r = new Order(NFT_External_Order_Id__c = str(m, 'ord')),
@@ -191,7 +191,7 @@ public without sharing class NFT_DemoDataLoader {
         Database.upsert(ships, NFT_Shipment__c.NFT_Tracking_Number__c, true);
 
         List<NFT_Invoice__c> invs = new List<NFT_Invoice__c>();
-        for (Object o : list(data, 'invoices')) {
+        for (Object o : items(data, 'invoices')) {
             Map<String, Object> m = (Map<String, Object>) o;
             invs.add(new NFT_Invoice__c(Name = str(m, 'name'), NFT_Accounting_Seed_Ref__c = str(m, 'ref'),
                 NFT_Order__r = new Order(NFT_External_Order_Id__c = str(m, 'ord')),
@@ -205,7 +205,7 @@ public without sharing class NFT_DemoDataLoader {
     public static void loadLogs(Integer part) {
         Map<String, Object> data = resource('NFT_DemoData_Logs' + String.valueOf(part));
         List<NFT_Sync_Log__c> logs = new List<NFT_Sync_Log__c>();
-        for (Object o : list(data, 'logs')) {
+        for (Object o : items(data, 'logs')) {
             Map<String, Object> m = (Map<String, Object>) o;
             NFT_Sync_Log__c l = new NFT_Sync_Log__c(NFT_External_Event_Id__c = str(m, 'id'), NFT_Record_Ref__c = str(m, 'ref'),
                 NFT_System__c = str(m, 'sys'), NFT_Event__c = str(m, 'ev'), NFT_Status__c = str(m, 'st'),

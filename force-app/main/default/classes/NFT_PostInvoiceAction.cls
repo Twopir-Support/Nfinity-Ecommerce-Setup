@@ -3,7 +3,7 @@
  */
 public with sharing class NFT_PostInvoiceAction {
     public class Request {
-        @InvocableVariable(label='Order Id', required=true) public Id orderId;
+        @InvocableVariable(label='Order Id') public Id orderId;
     }
     public class Response {
         @InvocableVariable(label='Message') public String message;

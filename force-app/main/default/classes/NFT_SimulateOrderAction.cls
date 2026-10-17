@@ -3,7 +3,7 @@
  */
 public with sharing class NFT_SimulateOrderAction {
     public class Request {
-        @InvocableVariable(label='Channel (Shopify or Amazon)', required=true) public String channel;
+        @InvocableVariable(label='Channel (Shopify or Amazon)') public String channel;
         @InvocableVariable(label='Account Id') public Id accountId;
         @InvocableVariable(label='Customer Key') public String customerKey;
         @InvocableVariable(label='SKU 1') public String sku1;

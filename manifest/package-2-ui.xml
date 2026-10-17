@@ -22,10 +22,6 @@
         <name>FlexiPage</name>
     </types>
     <types>
-        <members>NFT_Order_Fulfillment_Path</members>
-        <name>PathAssistant</name>
-    </types>
-    <types>
         <members>NFT_Commerce_Hub_User</members>
         <name>PermissionSet</name>
     </types>

@@ -3,7 +3,7 @@
  */
 public with sharing class NFT_FbaSyncAction {
     public class Request {
-        @InvocableVariable(label='Product Id', required=true) public Id productId;
+        @InvocableVariable(label='Product Id') public Id productId;
     }
     public class Response {
         @InvocableVariable(label='Message') public String message;

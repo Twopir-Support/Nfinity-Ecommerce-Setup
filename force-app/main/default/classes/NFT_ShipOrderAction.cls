@@ -3,7 +3,7 @@
  */
 public with sharing class NFT_ShipOrderAction {
     public class Request {
-        @InvocableVariable(label='Order Id', required=true) public Id orderId;
+        @InvocableVariable(label='Order Id') public Id orderId;
         @InvocableVariable(label='Carrier') public String carrier;
         @InvocableVariable(label='Ship mode') public String mode;
     }

@@ -31,3 +31,19 @@ org before pushing. If one fails, the deploy error names the file and property:
 
 They are all in the UI phase (`manifest/package-2-ui.xml`) except list views, so the
 objects, logic and demo data deploy and load first either way.
+
+## Fixes applied
+
+### Validation 0Afbm00000jxWef (2026-10-17) – 156 component errors
+
+| Component | Error | Fix |
+|---|---|---|
+| `NFT_ConfirmOrderAction`, `NFT_DeliverOrderAction`, `NFT_FbaSyncAction`, `NFT_PostInvoiceAction`, `NFT_ShipOrderAction`, `NFT_SimulateOrderAction` | Line 6: `Unexpected token '@'`, `Invalid type: required`, `Invalid constructor name: InvocableVariable` (then line 13 `InvocableMethod methods do not support parameter type of List`) | Removed `required=true` from the `@InvocableVariable` on the Request class. The org's compiler rejected it; `NFT_RetrySyncAction` (no `required`) compiled fine. The screen flows always pass the Id, so behaviour is unchanged. |
+| `NFT_CommerceTests` | `Constructor not defined: [NFT_…Action.Request].()` | Follow-on error from the six classes above; no change needed. |
+| `NFT_DemoDataLoader` | Line 19 `Unexpected token 'list'`, `Identifier name is reserved` and follow-on errors on every caller | Helper method `list(...)` renamed to `items(...)`; `list` is a reserved word in Apex. |
+| `NFT_Orders` (report type) | `Could not find field AccountId in table Order` | Removed the `AccountId` column; `Account.Name` and `Account.Id` remain. |
+| 7 reports in `NFT_Demo_Reports` | `invalid report type` | Follow-on error from `NFT_Orders`; no change needed. |
+| `NFT_Commerce_Operations` (dashboard) | `Metric … component missing indicatorLowColor attribute` | Added `indicatorHighColor` / `indicatorLowColor` / `indicatorMiddleColor` to the 6 metric components. |
+| `NFT_Commerce_Hub_Utility_Bar` (flexipage) | `The parent Lightning page one__UtilityBar doesn't exist` | Removed `parentFlexiPage`; utility bars don't need one. |
+| `NFT_Commerce_Integration_Hub` (app) | `no FlexiPage named NFT_Commerce_Hub_Utility_Bar found` | Follow-on error from the utility bar; no change needed. |
+| `NFT_Order_Fulfillment_Path` (path) | `Cannot create more than 1 Path per sobjectType and recordType` | The org already has a Path on Order (Master), and we don't change non-NFT components. Removed from `manifest/package.xml` and `manifest/package-2-ui.xml` and added to `.forceignore`. To use it: in Setup → Path Settings, deactivate/delete the existing Order path, then deploy `force-app/main/default/pathAssistants/NFT_Order_Fulfillment_Path.pathAssistant-meta.xml` on its own (remove the `.forceignore` line first) or create the path by hand on `NFT_Fulfillment_Status__c`. |

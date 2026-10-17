@@ -42,6 +42,12 @@ Source in Manifest to Org**, run each file in `scripts/apex/load/` in number ord
 **SFDX: Execute Anonymous Apex with Editor Contents**, then deploy
 `manifest/package-2-ui.xml` the same way.
 
+## Load or refresh only the demo data
+
+Already deployed? `./scripts/load-demo-data.ps1 -Org nft-demo` (Windows) or
+`./scripts/load-demo-data.sh nft-demo`. On the day of a client demo add `-Refresh` / `--refresh`
+so "Today" and "24h" dashboard numbers are current. Details: `docs/DEMO-DATA.md`.
+
 ## Reset the demo after a rehearsal
 
 Run `scripts/apex/reset/clear-demo-transactions.apex`, then the files in

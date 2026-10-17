@@ -76,3 +76,13 @@ objects, logic and demo data deploy and load first either way.
 | `NFT_Commerce_Hub_Utility_Bar` | `Invalid property [icon] in component [flowruntime:interview]` | `icon` and `label` belong to the utility item, not the flow component, so they now have `<type>decorator</type>`. |
 | `NFT_Order_Record_Page` | `[relatedListDisplayType]: The related lists display value you entered is invalid` | Shipments list changed from `TILE` (not a valid value) to `ADVGRID`, like the other lists. |
 | `NFT_Product_Record_Page` | `[relatedListApiName]: Could not find related list [OrderItems] for entity [Product2]` | Product2 has no Order Products related list (OrderItem links to the product through the price book entry). The "Open order lines" tab and its list were removed. The page keeps the "Stock by location" and "Details" tabs. |
+
+### Validation 5 (2026-10-17) – 2 component errors
+
+| Component | Error | Fix |
+|---|---|---|
+| `NFT_Account_Record_Page` | `Invalid property [refreshButton] in component [flexipage:reportChart]` | Removed `refreshButton`. The valid property `showRefreshButton` was already on the component. |
+| `NFT_Product_Record_Page` | `Component [flexipage:fieldSection] attribute [columns]: count [4] exceeded max [2]` | The "Stock totals" section now has 2 columns with 2 fields each (On Hand + Reserved, Available + Inbound) instead of 4 single-field columns. |
+
+Also added `scripts/load-demo-data.sh` / `.ps1` to load the demo data without a metadata deploy,
+with a refresh option for demo day, and `docs/DEMO-DATA.md` listing the records and dashboard values.

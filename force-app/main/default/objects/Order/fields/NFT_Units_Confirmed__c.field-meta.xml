@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Units_Confirmed__c</fullName>
+<label>Units Confirmed</label>
+<summaryForeignKey>OrderItem.OrderId</summaryForeignKey>
+<summaryOperation>sum</summaryOperation>
+<summarizedField>OrderItem.NFT_Qty_Confirmed__c</summarizedField>
+<type>Summary</type>
+</CustomField>

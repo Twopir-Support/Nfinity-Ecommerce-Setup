@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_All_Invoices</fullName>
+<columns>NAME</columns><columns>NFT_Order__c</columns><columns>NFT_Invoice_Date__c</columns><columns>NFT_Amount__c</columns><columns>NFT_Status__c</columns><columns>NFT_Accounting_Seed_Ref__c</columns>
+<filterScope>Everything</filterScope>
+
+<label>NFT All Invoices</label>
+</ListView>

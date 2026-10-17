@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Location_Type__c</fullName>
+<label>Location Type</label>
+<required>false</required>
+<type>Picklist</type>
+<valueSet><restricted>true</restricted><valueSetDefinition><sorted>false</sorted><value><fullName>3PL Warehouse</fullName><default>false</default><label>3PL Warehouse</label></value><value><fullName>Marketplace Fulfilment</fullName><default>false</default><label>Marketplace Fulfilment</label></value></valueSetDefinition></valueSet>
+</CustomField>

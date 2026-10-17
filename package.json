@@ -1,0 +1,13 @@
+{
+  "name": "nfinity-ecommerce-setup",
+  "private": true,
+  "version": "1.0.0",
+  "description": "NFT Commerce Integration Hub - Salesforce demo",
+  "scripts": {
+    "test:unit": "sfdx-lwc-jest",
+    "test:unit:watch": "sfdx-lwc-jest --watch"
+  },
+  "devDependencies": {
+    "@salesforce/sfdx-lwc-jest": "^7.0.1"
+  }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Inventory_Balance_Compact</fullName>
+<fields>Name</fields>
+<fields>NFT_Location__c</fields>
+<fields>NFT_Qty_Available__c</fields>
+<fields>NFT_Stock_Flag__c</fields>
+<label>NFT Inventory Balance Compact</label>
+</CompactLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Units_Invoiced__c</fullName>
+<label>Units Invoiced</label>
+<summaryForeignKey>OrderItem.OrderId</summaryForeignKey>
+<summaryOperation>sum</summaryOperation>
+<summarizedField>OrderItem.NFT_Qty_Invoiced__c</summarizedField>
+<type>Summary</type>
+</CustomField>

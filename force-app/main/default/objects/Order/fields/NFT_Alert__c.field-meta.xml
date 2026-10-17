@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Alert__c</fullName>
+<formula>IF(NFT_Late_Shipment__c, "Late", IF(NFT_At_Risk_Shipping__c, "At risk", ""))</formula>
+<formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+<label>Alert</label>
+<type>Text</type>
+</CustomField>

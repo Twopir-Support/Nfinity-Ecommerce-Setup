@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+<baseObject>NFT_Sync_Log__c</baseObject>
+<category>other</category>
+<deployed>true</deployed>
+<description>NFT demo sync logs</description>
+<label>NFT Sync Logs</label>
+<sections><columns><checkedByDefault>false</checkedByDefault><field>Id</field><table>NFT_Sync_Log__c</table></columns><columns><checkedByDefault>false</checkedByDefault><field>Name</field><table>NFT_Sync_Log__c</table></columns><columns><checkedByDefault>false</checkedByDefault><field>NFT_Order__c</field><table>NFT_Sync_Log__c</table></columns><columns><checkedByDefault>false</checkedByDefault><field>NFT_Record_Ref__c</field><table>NFT_Sync_Log__c</table></columns><columns><checkedByDefault>false</checkedByDefault><field>NFT_System__c</field><table>NFT_Sync_Log__c</table></columns><columns><checkedByDefault>false</checkedByDefault><field>NFT_Event__c</field><table>NFT_Sync_Log__c</table></columns><columns><checkedByDefault>false</checkedByDefault><field>NFT_Status__c</field><table>NFT_Sync_Log__c</table></columns><columns><checkedByDefault>false</checkedByDefault><field>NFT_Message__c</field><table>NFT_Sync_Log__c</table></columns><columns><checkedByDefault>false</checkedByDefault><field>NFT_Logged_At__c</field><table>NFT_Sync_Log__c</table></columns><columns><checkedByDefault>false</checkedByDefault><field>NFT_Attempts__c</field><table>NFT_Sync_Log__c</table></columns><columns><checkedByDefault>false</checkedByDefault><field>NFT_External_Event_Id__c</field><table>NFT_Sync_Log__c</table></columns><columns><checkedByDefault>false</checkedByDefault><field>NFT_Can_Retry__c</field><table>NFT_Sync_Log__c</table></columns><columns><checkedByDefault>false</checkedByDefault><field>NFT_Order__c.NFT_External_Order_Id__c</field><table>NFT_Sync_Log__c</table></columns><masterLabel>NFT Sync Logs</masterLabel></sections>
+</ReportType>

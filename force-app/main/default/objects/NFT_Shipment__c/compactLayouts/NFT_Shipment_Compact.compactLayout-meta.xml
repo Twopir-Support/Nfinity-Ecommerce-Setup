@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Shipment_Compact</fullName>
+<fields>Name</fields>
+<fields>NFT_Order__c</fields>
+<fields>NFT_Carrier__c</fields>
+<fields>NFT_Tracking_Number__c</fields>
+<fields>NFT_Status__c</fields>
+<label>NFT Shipment Compact</label>
+</CompactLayout>

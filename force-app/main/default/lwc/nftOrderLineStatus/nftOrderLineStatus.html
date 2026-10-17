@@ -1,0 +1,80 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body"><h2 class="slds-card__header-title">Line Items</h2></div>
+                <span class="badge">Custom LWC · orderLineStatus</span>
+            </header>
+        </div>
+        <div class="slds-card__body slds-card__body_inner">
+            <template lwc:if={loading}><lightning-spinner alternative-text="Loading order lines" size="small"></lightning-spinner></template>
+            <template lwc:if={error}>
+                <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">{error}</div>
+            </template>
+            <template lwc:if={order}>
+                <div class="tiles">
+                    <div class="tile">
+                        <div class="tile-label">Confirmed</div>
+                        <div class="tile-value">{confirmedPct}%</div>
+                        <div class="bar"><span class="bar-fill bar-good" style={confirmedBar}></span></div>
+                        <div class="tile-label">{confirmedText}</div>
+                    </div>
+                    <div class={shippedTileClass}>
+                        <div class="tile-label">Shipped</div>
+                        <div class="tile-value">{shippedPct}%</div>
+                        <div class="bar"><span class="bar-fill bar-warn" style={shippedBar}></span></div>
+                        <div class="tile-label">{shippedText}</div>
+                    </div>
+                    <div class="tile">
+                        <div class="tile-label">Invoiced</div>
+                        <div class="tile-value">{invoicedPct}%</div>
+                        <div class="bar"><span class="bar-fill bar-info" style={invoicedBar}></span></div>
+                        <div class="tile-label">{invoicedText}</div>
+                    </div>
+                </div>
+            </template>
+            <template lwc:if={hasLines}>
+                <div class="filters" role="group" aria-label="Filter lines">
+                    <template for:each={filters} for:item="f">
+                        <button key={f.value} class={f.cls} aria-pressed={f.pressed} data-value={f.value} onclick={handleFilter}>{f.label}</button>
+                    </template>
+                </div>
+                <div class="slds-scrollable_x">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered lines">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th scope="col">#</th><th scope="col">SKU</th><th scope="col">Description</th>
+                                <th scope="col" class="num">Ordered</th><th scope="col">Confirmed</th><th scope="col">Shipped</th>
+                                <th scope="col">Invoiced</th><th scope="col">Line status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={visibleLines} for:item="l">
+                                <tr key={l.id} class={l.rowClass}>
+                                    <td>{l.no}</td>
+                                    <td><a href="#" data-id={l.productId} onclick={openProduct}>{l.sku}</a></td>
+                                    <td>{l.name}</td>
+                                    <td class="num">{l.qty}</td>
+                                    <td><span class={l.confClass}>{l.conf}</span></td>
+                                    <td><span class={l.shipClass}>{l.ship}</span></td>
+                                    <td><span class={l.invClass}>{l.inv}</span></td>
+                                    <td>{l.status}</td>
+                                </tr>
+                            </template>
+                            <template lwc:if={noVisibleLines}>
+                                <tr><td colspan="8" class="muted">No lines with this status.</td></tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+                <template for:each={shortLines} for:item="s">
+                    <div key={s.id} class="note">{s.waiting} unit(s) of {s.sku} waiting for stock.
+                        <a href="#" data-id={s.productId} onclick={openProduct}>View stock</a></div>
+                </template>
+            </template>
+            <template lwc:elseif={order}>
+                <p class="muted">No order lines yet.</p>
+            </template>
+        </div>
+    </article>
+</template>

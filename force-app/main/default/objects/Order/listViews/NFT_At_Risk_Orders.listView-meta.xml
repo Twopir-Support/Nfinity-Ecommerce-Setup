@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_At_Risk_Orders</fullName>
+<booleanFilter>1 OR 2</booleanFilter><columns>ORDERS.ORDER_NUMBER</columns><columns>NFT_External_Order_Id__c</columns><columns>NFT_Channel__c</columns><columns>SALES.ACCOUNT.NAME</columns><columns>NFT_Fulfillment_Provider__c</columns><columns>NFT_Fulfillment_Status__c</columns><columns>NFT_Units_Shipped_Label__c</columns><columns>ORDERS.TOTAL_AMOUNT</columns><columns>NFT_Must_Ship_By__c</columns><columns>NFT_Alert__c</columns>
+<filterScope>Everything</filterScope>
+<filters><field>NFT_At_Risk_Shipping__c</field><operation>equals</operation><value>1</value></filters><filters><field>NFT_Late_Shipment__c</field><operation>equals</operation><value>1</value></filters>
+<label>NFT At Risk Orders</label>
+</ListView>

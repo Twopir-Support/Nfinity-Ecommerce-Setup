@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>E-commerce Management Setup – Implementation preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF0F3; --surface:#FFFFFF; --ink:#16202C; --muted:#4F5B69; --line:#D5DAE1; --accent:#0B5CAB; --accent-soft:#E3EEFA;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --bg:#12161C; --surface:#1B2129; --ink:#E7ECF2; --muted:#A5B0BD; --line:#313A45; --accent:#7DB6F2; --accent-soft:#1F3047; color-scheme:dark; }
+}
+:root[data-theme="dark"]{ --bg:#12161C; --surface:#1B2129; --ink:#E7ECF2; --muted:#A5B0BD; --line:#313A45; --accent:#7DB6F2; --accent-soft:#1F3047; color-scheme:dark; }
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.55}
+.wrap{max-width:1440px;margin:0 auto;padding:40px 24px 64px}
+.doc-head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px;align-items:end;margin-bottom:28px}
+.doc-head h1{font-size:clamp(28px,3.4vw,44px);line-height:1.1;font-weight:600;margin:0 0 12px;letter-spacing:-0.01em}
+.doc-head p{margin:0;color:var(--muted);max-width:62ch}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.facts div{padding:14px 16px;border-left:1px solid var(--line)}
+.facts div:first-child{border-left:none}
+.facts b{display:block;font-size:22px;font-weight:600;line-height:1.2}
+.facts span{font-size:13px;color:var(--muted)}
+.switch{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.switch button{font:inherit;font-size:14px;font-weight:500;height:44px;padding:0 16px;border-radius:22px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.switch button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.switch button:focus-visible,.sf button:focus-visible,.sf a:focus-visible{outline:3px solid #1B96FF;outline-offset:2px}
+.screen-intro{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin:0 0 12px}
+.screen-intro h2{font-size:22px;font-weight:600;margin:0}
+.screen-intro p{margin:0;color:var(--muted);max-width:70ch}
+.frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#F3F3F3}
+.frame-bar{background:var(--surface);border-bottom:1px solid var(--line);padding:8px 14px;font-size:13px;color:var(--muted)}
+.notes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;margin-top:20px}
+.notes section{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px 20px}
+.notes h3{font-size:16px;font-weight:600;margin:0 0 10px}
+.notes table{width:100%;border-collapse:collapse;font-size:14px}
+.notes td{padding:7px 0;border-top:1px solid var(--line);vertical-align:top}
+.notes td:first-child{width:38%;padding-right:12px;font-weight:500}
+.notes tr:first-child td{border-top:none}
+.notes ul{margin:0;padding-left:18px}
+.notes li{margin:4px 0}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:1px 8px;border-radius:10px;background:var(--accent-soft);color:var(--accent);margin-left:6px}
+footer{margin-top:40px;font-size:13px;color:var(--muted)}
+@media (max-width:900px){.doc-head,.notes{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.facts{grid-template-columns:minmax(0,1fr)}.facts div{border-left:none;border-top:1px solid var(--line)}.facts div:first-child{border-top:none}}
+
+/* ---------- Business scenario ---------- */
+.story{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:32px clamp(20px,4vw,48px)}
+.story-flag{display:inline-block;font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 12px;border-radius:14px;margin-bottom:16px}
+.story h2{font-size:clamp(24px,2.6vw,34px);line-height:1.2;font-weight:600;margin:0 0 12px;max-width:30ch}
+.story h3{font-size:20px;font-weight:600;margin:40px 0 12px}
+.story p{max-width:72ch;margin:0 0 12px}
+.story .lead{font-size:18px;color:var(--muted)}
+.story table{width:100%;border-collapse:collapse;font-size:15px}
+.story th{text-align:left;font-weight:600;padding:10px 12px;border-bottom:2px solid var(--line);white-space:nowrap}
+.story td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+.story td:first-child{font-weight:600;white-space:nowrap}
+.story .scroll{overflow-x:auto}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;counter-reset:step;list-style:none;margin:0;padding:0}
+.flow li{border:1px solid var(--line);border-radius:8px;padding:14px 16px;position:relative}
+.flow li::before{counter-increment:step;content:counter(step);display:inline-flex;width:26px;height:26px;border-radius:13px;align-items:center;justify-content:center;background:var(--accent);color:var(--surface);font-weight:600;font-size:13px;margin-bottom:8px}
+.flow b{display:block;font-size:15px;margin-bottom:4px}
+.flow span{display:block;font-size:14px;color:var(--muted)}
+.flow code,.story code{font-size:13px}
+.flow a{font-size:14px;color:var(--accent)}
+.model{border:1px solid var(--line);border-radius:8px;padding:16px;overflow-x:auto;margin:0 0 16px;background:var(--bg)}
+.day{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.day li{padding:0 0 16px 20px;position:relative;max-width:76ch}
+.day li::before{content:'';position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:6px;background:var(--accent)}
+.day time{display:block;font-size:13px;font-weight:600;color:var(--muted)}
+.close{margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+
+.erd{display:block;width:100%;min-width:760px;height:auto}
+.erd text{font-family:inherit}
+.trees{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;border:1px solid var(--line);border-radius:8px;padding:20px;background:var(--bg);margin:0 0 16px}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{padding-left:26px}
+.tree li{position:relative;padding:6px 0 6px 20px}
+.tree li::before{content:'';position:absolute;left:0;top:0;bottom:0;border-left:1px solid var(--muted)}
+.tree li:last-child::before{bottom:auto;height:22px}
+.tree li::after{content:'';position:absolute;left:0;top:22px;width:14px;border-top:1px solid var(--muted)}
+.tree>li{padding-left:0}.tree>li::before,.tree>li::after{display:none}
+.node{display:inline-block;border:1px solid var(--muted);border-radius:6px;padding:4px 10px;background:var(--surface);font-weight:600;font-size:14px}
+.node.custom{border-style:dashed}
+.node.hub{border:2px solid var(--accent);background:var(--accent-soft)}
+.why{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.key{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted);margin:0 0 16px}
+.key span{display:inline-flex;align-items:center;gap:6px}
+.key i{display:inline-block;width:18px;height:12px;border:1px solid var(--muted);border-radius:3px}
+
+/* ---------- Salesforce mockup (fixed light, like a screenshot) ---------- */
+.sf{font-family:-apple-system,'Segoe UI','Helvetica Neue',sans-serif;color:#181818;background:#F3F3F3;font-size:14px;line-height:1.4;color-scheme:light}
+.sf a{color:#0B5CAB;text-decoration:none}.sf a:hover{color:#014486;text-decoration:underline}
+.sf-banner{background:#032D60;color:#FFFFFF;font-size:12px;font-weight:600;text-align:center;padding:6px 16px}
+.sf-global{background:#FFFFFF;border-bottom:1px solid #E5E5E5;padding:10px 24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.sf-cloud{width:44px;height:30px;border-radius:15px;background:#0176D3}
+.sf-search{flex:1 1 320px;max-width:560px;margin:0 auto;height:34px;border:1px solid #C9C9C9;border-radius:4px;padding:0 12px;font-size:13px;font-family:inherit;background:#FFFFFF;color:#181818}
+.sf-avatar{width:32px;height:32px;border-radius:16px;background:#E5E5E5;color:#3E3E3C;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.sf-nav{background:#FFFFFF;border-bottom:3px solid #0176D3;padding:0 24px;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.sf-app{display:flex;align-items:center;gap:10px;padding:12px 16px 12px 0;margin-right:8px;font-size:18px}
+.sf-nav a{padding:13px 12px;font-size:14px;color:#181818}
+.sf-nav a.on{font-weight:700;background:#EEF4FF}
+.sf-main{max-width:1400px;margin:0 auto;padding:16px 24px 32px;display:flex;flex-direction:column;gap:16px}
+.sf-card{background:#FFFFFF;border:1px solid #E5E5E5;border-radius:4px}
+.sf-pad{padding:14px 16px}
+.sf-head{display:flex;flex-direction:column;gap:14px}
+.sf-headrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sf-icon{width:40px;height:40px;border-radius:4px;display:flex;align-items:center;justify-content:center;flex:none}
+.sf-title{flex:1 1 280px}
+.sf-small{font-size:12px;color:#5C5C5C}
+.sf-h{font-size:20px;font-weight:700}
+.sf-h18{font-size:18px;font-weight:700}
+.sf-h15{font-size:15px;font-weight:700}
+.sf-demo{font-size:11px;font-weight:700;color:#5A1BA9;background:#F2EBFC;padding:3px 10px;border-radius:12px;white-space:nowrap}
+.sf-btns{display:flex;flex-wrap:wrap}
+.sf-btns button{height:36px;padding:0 13px;border:1px solid #C9C9C9;border-left:none;background:#FFFFFF;color:#0B5CAB;font-size:13px;font-family:inherit;cursor:pointer}
+.sf-btns button:first-child{border-left:1px solid #C9C9C9;border-radius:4px 0 0 4px}
+.sf-btns button:last-child{border-radius:0 4px 4px 0}
+.sf-btns button:only-child{border-radius:4px}
+.sf-btns button.brand{background:#0176D3;border-color:#0176D3;color:#FFFFFF}
+.sf-btns button:disabled{background:#F3F3F3;color:#5C5C5C;cursor:default}
+.sf-hl{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;border-top:1px solid #EEEEEE;padding-top:12px}
+.sf-hl div div:last-child{font-size:14px;margin-top:2px}
+.sf-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.sf-kpi{background:#FFFFFF;border:1px solid #E5E5E5;border-radius:4px;padding:12px 14px}
+.sf-kpi .k{font-size:11px;font-weight:600;letter-spacing:.04em;color:#5C5C5C}
+.sf-kpi .v{font-size:28px;font-weight:300;margin-top:4px}
+.sf-kpi.bad{border-color:#BA0517}.sf-kpi.bad .v{color:#BA0517}
+.sf-kpi.warn{border-color:#A96404}.sf-kpi.warn .v{color:#8C4B02}
+.sf-tabs{display:flex;flex-wrap:wrap;border-bottom:1px solid #E5E5E5;padding:0 8px}
+.sf-tabs button{height:44px;padding:0 16px;border:none;background:transparent;font-family:inherit;font-size:14px;color:#3E3E3C;cursor:pointer}
+.sf-tabs button[aria-selected="true"]{color:#0B5CAB;font-weight:700;box-shadow:inset 0 -3px 0 #0176D3}
+.sf-panelhead{padding:12px 16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.sf-panelhead b{font-size:13px}
+.sf-scroll{overflow-x:auto}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{text-align:left;font-weight:600;color:#3E3E3C;background:#F3F3F3;padding:8px 12px;border-bottom:1px solid #E5E5E5;white-space:nowrap}
+.tbl td{padding:9px 12px;border-bottom:1px solid #EEEEEE;color:#181818;white-space:nowrap}
+.tbl .num{text-align:right}
+.tbl tr.amber td{background:#FEF6EC}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:12px;font-weight:600}
+.p-good{background:#EBF7E6;color:#22683E}.p-info{background:#EEF4FF;color:#014486}.p-warn{background:#FEF1E5;color:#8C4B02}.p-bad{background:#FEF1EE;color:#BA0517}.p-plain{background:#F3F3F3;color:#3E3E3C}
+.sf-mini{height:28px;padding:0 10px;border:1px solid #C9C9C9;background:#FFFFFF;color:#0B5CAB;border-radius:4px;font-size:12px;font-family:inherit;cursor:pointer}
+.sf-path{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px}
+.sf-path div{height:34px;border-radius:17px;font-size:13px;display:flex;align-items:center;justify-content:center;background:#F3F3F3;color:#3E3E3C}
+.sf-path .done{background:#2E844A;color:#FFFFFF;font-weight:600}
+.sf-path .now{background:#014486;color:#FFFFFF;font-weight:600}
+.sf-cols{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}
+.sf-colmain{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.sf-colside{flex:1 1 330px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.sf-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px 24px}
+.sf-fields > div{border-bottom:1px solid #EEEEEE;padding-bottom:6px}
+.sf-fields > div div:last-child{font-size:14px}
+.sf-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;background:#F3F3F3;border-radius:6px;padding:12px}
+.sf-tile{background:#FFFFFF;border-radius:4px;padding:12px;text-align:center}
+.sf-tile .v{font-size:30px;font-weight:300}
+.bar{height:6px;background:#E5E5E5;border-radius:3px;margin-top:6px}.bar i{display:block;height:6px;border-radius:3px}
+.sf-filters{display:flex;flex-wrap:wrap;gap:8px}
+.sf-filters button{height:30px;padding:0 12px;border-radius:15px;font-size:12px;font-family:inherit;cursor:pointer;border:1px solid #C9C9C9;background:#FFFFFF;color:#3E3E3C}
+.sf-filters button[aria-pressed="true"]{border-color:#0176D3;background:#EEF4FF;color:#014486;font-weight:700}
+.sf-note{font-size:12px;color:#8C4B02;background:#FEF1E5;border-radius:4px;padding:8px 12px}
+.sf-box{border:1px solid #E5E5E5;border-radius:4px;padding:10px 12px}
+.sf-stack{display:flex;flex-direction:column;gap:10px}
+.sf-row{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.tl{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid #F3F3F3}
+.tl i{width:10px;height:10px;border-radius:5px;margin-top:4px;flex:none}
+.tl b{font-size:13px;font-weight:600;display:block}
+.chan{display:flex;align-items:center;gap:10px;font-size:13px}
+.chan span:first-child{width:70px}.chan .track{flex:1;height:14px;background:#F3F3F3;border-radius:3px}.chan .track i{display:block;height:14px;background:#0176D3;border-radius:3px}
+.chan span:last-child{width:24px;text-align:right}
+.sr{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="doc-head">
+<div>
+<h1>E-commerce Management Setup</h1>
+<p>A preview of the Salesforce app we will build for a direct-to-consumer brand. Shopify and Amazon orders, ShipMonk and FBA fulfilment, shipments, stock and invoices sit in one app. Every screen below uses dummy data and simulated integrations.</p>
+</div>
+<div class="facts" aria-label="Build summary">
+<div><b>9 objects</b><span>5 standard, 4 custom</span></div>
+<div><b>1 LWC</b><span>Only custom code</span></div>
+<div><b>5 days</b><span>Build estimate</span></div>
+</div>
+</header>
+
+<div class="switch" role="tablist" aria-label="Screens">
+<button type="button" role="tab" data-screen="story" aria-selected="true">E-commerce Management Setup</button>
+<button type="button" role="tab" data-screen="home" aria-selected="false">1. Operations home</button>
+<button type="button" role="tab" data-screen="order" aria-selected="false">2. Order 360</button>
+<button type="button" role="tab" data-screen="product" aria-selected="false">3. Product stock</button>
+<button type="button" role="tab" data-screen="account" aria-selected="false">4. Customer</button>
+</div>
+
+<!-- ================= SCREEN 1 ================= -->
+<section class="screen" id="screen-story">
+<div class="story">
+<span class="story-flag">Illustrative scenario · not a client reference</span>
+<h2>E-commerce Management Setup</h2>
+<p class="lead">Why a direct-to-consumer brand needs one place to see every order.</p>
+<p>Picture a direct-to-consumer cheer footwear brand. Shoppers buy on Shopify and on Amazon. A 3PL, ShipMonk, ships the Shopify orders; Amazon ships its own FBA orders; ShipStation prints labels and tracks parcels; Accounting Seed keeps the books. Every order touches four or five systems, and each one holds only part of the story.</p>
+<p>We built the E-commerce Management Setup so that Salesforce becomes the one place where the team sees each order, its stock, its shipments, its invoice and any sync that failed. The four screens in this preview follow that same scenario.</p>
+
+<h3>The problem, and what changes</h3>
+<div class="scroll"><table>
+<thead><tr><th>Who</th><th>Before</th><th>With the hub</th></tr></thead>
+<tbody>
+<tr><td>Customer support</td><td>Checks Shopify, ShipMonk, ShipStation and Amazon to answer one “where is my order?” question.</td><td>Opens one Order 360 page: status, every shipment with tracking, and a timeline of what each system did.</td></tr>
+<tr><td>Operations</td><td>Cannot see ShipMonk and FBA stock side by side, so an order can sell stock that is not at the right warehouse.</td><td>Sees stock by location. Each order reserves stock where it will ship from, and low stock is flagged.</td></tr>
+<tr><td>E-commerce lead</td><td>Hears about failed or duplicate syncs only when a customer complains.</td><td>Sees failed syncs first, with a Retry button. A repeated order message is blocked by its External Order ID.</td></tr>
+<tr><td>Finance</td><td>Matches shipped orders to invoices by hand in a spreadsheet.</td><td>Sees on each order how much is shipped and how much is invoiced, with each Accounting Seed invoice listed.</td></tr>
+</tbody></table></div>
+
+<h3>How an order moves through the hub</h3>
+<ol class="flow">
+<li><b>Order arrives</b><span>Shopify or Amazon order becomes an Order with lines. Its External Order ID is unique, so a repeat is blocked.</span><a href="#" data-go="home">See Operations home</a></li>
+<li><b>Stock is reserved</b><span>Shopify orders reserve at ShipMonk, Amazon orders at FBA. Available stock drops at that location.</span><a href="#" data-go="product">See Product stock</a></li>
+<li><b>3PL confirms</b><span>ShipMonk confirms the lines. The order path moves to Confirmed.</span><a href="#" data-go="order">See Order 360</a></li>
+<li><b>Parcels ship</b><span>Each parcel is a Shipment with carrier and tracking. An order can ship in parts.</span><a href="#" data-go="order">See Order 360</a></li>
+<li><b>Invoice posts</b><span>An Accounting Seed invoice (simulated) is recorded against the shipped units.</span><a href="#" data-go="account">See Customer</a></li>
+<li><b>Every step is logged</b><span>Each system message writes a Sync Log row. Failures show on the home page and the order, ready to retry.</span><a href="#" data-go="home">See Sync logs</a></li>
+</ol>
+
+<h3>The data model behind it</h3>
+<p>Nine objects. The five standard ones carry customers, products and orders; four small custom ones carry what standard Salesforce has no place for.</p>
+<div class="key"><span><i></i>Standard object</span><span><i style="border-style:dashed"></i>Custom object</span><span><i style="border:2px solid var(--accent);background:var(--accent-soft)"></i>Order, the hub</span></div>
+<div class="model">
+<svg class="erd" viewBox="0 0 920 500" role="img" aria-label="Data model: Account has Contacts and places Orders; each Order contains Order Items, Shipments, Invoices and Sync Logs; each Order Item is a Product, and each Product has Inventory Balances">
+<defs><marker id="erd-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker></defs>
+<g fill="none" stroke="var(--muted)" stroke-width="1.25">
+<path d="M230 182H316" marker-end="url(#erd-arrow)"/>
+<path d="M135 214V296" marker-end="url(#erd-arrow)"/>
+<path d="M420 214V296" marker-end="url(#erd-arrow)"/>
+<path d="M520 332H636" marker-end="url(#erd-arrow)"/>
+<path d="M520 182H580V70H636" marker-end="url(#erd-arrow)"/>
+<path d="M580 160H636" marker-end="url(#erd-arrow)"/>
+<path d="M580 182V250H636" marker-end="url(#erd-arrow)"/>
+<path d="M760 364V416" marker-end="url(#erd-arrow)"/>
+</g>
+<g font-size="12" fill="var(--muted)">
+<text x="273" y="172" text-anchor="middle">places</text>
+<text x="273" y="200" text-anchor="middle">1 to many</text>
+<text x="145" y="260">has</text>
+<text x="430" y="260">contains</text>
+<text x="578" y="322" text-anchor="middle">sold as</text>
+<text x="608" y="62" text-anchor="middle">ships in</text>
+<text x="608" y="152" text-anchor="middle">billed in</text>
+<text x="608" y="242" text-anchor="middle">logged in</text>
+<text x="770" y="395">stocked at</text>
+</g>
+<g fill="var(--surface)" stroke="var(--muted)" stroke-width="1">
+<rect x="40" y="150" width="190" height="64" rx="8"/>
+<rect x="40" y="300" width="190" height="64" rx="8"/>
+<rect x="320" y="300" width="200" height="64" rx="8"/>
+<rect x="640" y="300" width="240" height="64" rx="8"/>
+</g>
+<rect x="320" y="150" width="200" height="64" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+<g fill="var(--surface)" stroke="var(--muted)" stroke-width="1" stroke-dasharray="5 4">
+<rect x="640" y="38" width="240" height="64" rx="8"/>
+<rect x="640" y="128" width="240" height="64" rx="8"/>
+<rect x="640" y="218" width="240" height="64" rx="8"/>
+<rect x="640" y="420" width="240" height="64" rx="8"/>
+</g>
+<g font-size="14" font-weight="600" fill="var(--ink)">
+<text x="54" y="176">Account</text>
+<text x="54" y="326">Contact</text>
+<text x="334" y="176">Order</text>
+<text x="334" y="326">OrderItem</text>
+<text x="654" y="326">Product2</text>
+<text x="654" y="64">Shipment__c</text>
+<text x="654" y="154">Invoice__c</text>
+<text x="654" y="244">Sync_Log__c</text>
+<text x="654" y="446">Inventory_Balance__c</text>
+</g>
+<g font-size="12" fill="var(--muted)">
+<text x="54" y="198">Shopper, lifetime spend</text>
+<text x="54" y="348">Name, email, phone</text>
+<text x="334" y="198">External ID, channel, provider</text>
+<text x="334" y="348">Qty ordered, shipped, invoiced</text>
+<text x="654" y="348">SKU, style, colour, size</text>
+<text x="654" y="86">Carrier, tracking, status</text>
+<text x="654" y="176">Amount, status (simulated)</text>
+<text x="654" y="266">System, event, status</text>
+<text x="654" y="468">Location, on hand, available</text>
+</g>
+</svg>
+</div>
+<p>The same model as a tree: what belongs to what.</p>
+<div class="trees">
+<ul class="tree" aria-label="Customer and order tree">
+<li><span class="node">Account</span><span class="why">The shopper</span>
+<ul>
+<li><span class="node">Contact</span><span class="why">Name, email, phone</span></li>
+<li><span class="node hub">Order</span><span class="why">One per Shopify or Amazon order</span>
+<ul>
+<li><span class="node">OrderItem</span><span class="why">One per line; points to a Product2</span></li>
+<li><span class="node custom">Shipment__c</span><span class="why">One per parcel</span></li>
+<li><span class="node custom">Invoice__c</span><span class="why">Simulated Accounting Seed invoice</span></li>
+<li><span class="node custom">Sync_Log__c</span><span class="why">One per system message</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="tree" aria-label="Product and stock tree">
+<li><span class="node">Product2</span><span class="why">One per SKU</span>
+<ul>
+<li><span class="node custom">Inventory_Balance__c</span><span class="why">One per location</span>
+<ul>
+<li><span class="node custom">ShipMonk Warehouse</span><span class="why">Ships Shopify orders</span></li>
+<li><span class="node custom">Amazon FBA</span><span class="why">Ships Amazon orders</span></li>
+</ul>
+</li>
+<li><span class="node">OrderItem</span><span class="why">Every order line that sells this SKU</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="scroll"><table>
+<thead><tr><th>Object</th><th>Type</th><th>Why it exists</th></tr></thead>
+<tbody>
+<tr><td>Account, Contact</td><td>Standard</td><td>The shopper. Amazon buyers are masked, so Amazon orders share one account.</td></tr>
+<tr><td>Product2</td><td>Standard</td><td>One record per SKU: style, colour and size.</td></tr>
+<tr><td>Order, OrderItem</td><td>Standard</td><td>The order from either channel, with ordered, confirmed, shipped and invoiced quantities per line.</td></tr>
+<tr><td><code>Inventory_Balance__c</code></td><td>Custom</td><td>Stock for one SKU at one location (ShipMonk or FBA): on hand, reserved, inbound, available.</td></tr>
+<tr><td><code>Shipment__c</code></td><td>Custom</td><td>One parcel: carrier, tracking, status. Lets an order ship in parts.</td></tr>
+<tr><td><code>Invoice__c</code></td><td>Custom</td><td>The simulated Accounting Seed invoice, so shipped and invoiced can be compared.</td></tr>
+<tr><td><code>Sync_Log__c</code></td><td>Custom</td><td>Every message between systems: success, failure or duplicate. Drives the timeline and the error view.</td></tr>
+</tbody></table></div>
+
+<h3>Following one order</h3>
+<ol class="day">
+<li><time>Oct 15, 9:12 AM</time>Madison orders two Apex shoes and a backpack on Shopify. Order SHP-10234 appears in Salesforce and three units are reserved at ShipMonk.</li>
+<li><time>Oct 15, 11:06 AM</time>Shopify sends the same order again. The hub recognises the External Order ID and blocks it: no second order, no second reservation.</li>
+<li><time>Oct 15, 4:10 PM</time>The backpack ships by USPS and its invoice posts. The order is now partly shipped and partly invoiced.</li>
+<li><time>Oct 16, 2:20 PM</time>One shoe ships by UPS. The second cannot ship: ShipMonk has none available, 48 inbound. The line turns amber and the product page shows why.</li>
+<li><time>Oct 17, 8:02 AM</time>A ShipStation tracking update fails. It shows as an alert on the order and on the home page, with a Retry button.</li>
+<li><time>Oct 17, morning</time>Madison asks where her shoes are. Support opens one page and answers in seconds: one parcel delivered, one in transit, one unit waiting on stock.</li>
+</ol>
+<p><a href="#" data-go="order">Open this order in the preview</a></p>
+
+<div class="close">
+<h3 style="margin-top:0">Where this setup fits</h3>
+<p>Any brand that sells on Shopify and Amazon, ships through a 3PL and Amazon FBA, and keeps its books in Accounting Seed can use the same nine objects and the same flow. Before anything is connected live, discovery confirms which system owns products, stock and accounting.</p>
+</div>
+</div>
+</section>
+
+<section class="screen" id="screen-home" hidden>
+<div class="screen-intro"><h2>Operations home</h2><p>The landing page. Daily numbers on top, and one tabbed workspace to work orders, stock, shipments, sync errors and customers. The tabs work.</p></div>
+<div class="frame"><div class="frame-bar">Salesforce · Commerce Integration Hub · Operations</div>
+<div class="sf">
+<div class="sf-banner">UI PREVIEW · Mockup with dummy data · Not a live Salesforce org</div>
+<div class="sf-global"><div class="sf-cloud" aria-hidden="true"></div><label class="sr" for="s1">Search</label><input id="s1" class="sf-search" type="search" placeholder="Search orders, SKUs, customers…"><div class="sf-avatar">TP</div></div>
+<nav class="sf-nav" aria-label="App navigation"><div class="sf-app"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><g fill="#3E3E3C"><circle cx="3" cy="3" r="2"/><circle cx="9" cy="3" r="2"/><circle cx="15" cy="3" r="2"/><circle cx="3" cy="9" r="2"/><circle cx="9" cy="9" r="2"/><circle cx="15" cy="9" r="2"/><circle cx="3" cy="15" r="2"/><circle cx="9" cy="15" r="2"/><circle cx="15" cy="15" r="2"/></g></svg>Commerce Integration Hub</div>
+<a href="#" data-go="home" class="on">Operations</a><a href="#" data-go="order">Orders</a><a href="#" data-go="product">Products</a><a href="#" data-go="product">Inventory</a><a href="#" data-go="order">Shipments</a><a href="#" data-go="account">Accounts</a><a href="#" data-go="home">Sync Logs</a><a href="#" data-go="home">Reports</a></nav>
+<div class="sf-main">
+<div class="sf-card sf-pad sf-headrow">
+<div class="sf-icon" style="background:#FE9339" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h13v10H3z"/><path d="M16 10h3l2 3v4h-5"/><circle cx="7" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg></div>
+<div style="flex:1 1 360px"><div class="sf-h18">Commerce Operations</div><div class="sf-small" style="margin-top:2px">Shopify + Amazon / FBA → Salesforce → ShipMonk + ShipStation → Accounting Seed</div></div>
+<span class="sf-demo">DEMO · Mock integrations · Dummy data</span>
+<div class="sf-btns"><button type="button">Simulate Shopify Order</button><button type="button">Simulate Amazon / FBA Order</button><button type="button">Retry Failed Syncs</button></div>
+</div>
+<div class="sf-kpis" aria-label="Key figures">
+<div class="sf-kpi"><div class="k">NEW ORDERS TODAY</div><div class="v">18</div><div class="sf-small">Shopify 13 · Amazon 5</div></div>
+<div class="sf-kpi"><div class="k">AWAITING SHIPMENT</div><div class="v">27</div><div class="sf-small">Received + Confirmed</div></div>
+<div class="sf-kpi"><div class="k">FBA ORDERS · 30 DAYS</div><div class="v">74</div><div class="sf-small">Fulfilled by Amazon</div></div>
+<div class="sf-kpi bad"><div class="k">LATE SHIPMENTS</div><div class="v">4</div><div class="sf-small">Past Must Ship By</div></div>
+<div class="sf-kpi warn"><div class="k">LOW-STOCK SKUS</div><div class="v">6</div><div class="sf-small">At or below reorder point</div></div>
+<div class="sf-kpi bad"><div class="k">SYNC ERRORS</div><div class="v">3</div><div class="sf-small">Failed, last 24 hours</div></div>
+</div>
+<div class="sf-card">
+<div class="sf-tabs" role="tablist" aria-label="Workspace" data-tabs="home"></div>
+<div data-panels="home"></div>
+</div>
+</div>
+</div></div>
+<div class="notes">
+<section><h3>What the user sees</h3><ul>
+<li>Six daily KPI tiles, with problem tiles outlined red or amber.</li>
+<li>Open Shopify and Amazon orders, sorted by Must Ship By, with Late and At risk flags.</li>
+<li>Stock by SKU and location, low stock first.</li>
+<li>Shipments with carrier and tracking, and a sync log listing failures first with a Retry button.</li>
+<li>Buttons that simulate a Shopify order, an Amazon/FBA order and a retry.</li>
+</ul></section>
+<section><h3>How it is built in Salesforce</h3><table>
+<tr><td>Page</td><td>Lightning app page, set as the app home</td></tr>
+<tr><td>KPI tiles</td><td>Dashboard component, metric widgets only</td></tr>
+<tr><td>Workspace</td><td>Standard Tabs component with List View components</td></tr>
+<tr><td>Simulate buttons</td><td>Screen flows in the utility bar</td></tr>
+<tr><td>Header</td><td>Rich Text component</td></tr>
+</table></section>
+</div>
+</section>
+
+<!-- ================= SCREEN 2 ================= -->
+<section class="screen" id="screen-order" hidden>
+<div class="screen-intro"><h2>Order 360: SHP-10234</h2><p>One Shopify order, fulfilled by ShipMonk, followed from receipt to invoice. The line filters work.</p></div>
+<div class="frame"><div class="frame-bar">Salesforce · Commerce Integration Hub · Order 00001248</div>
+<div class="sf">
+<div class="sf-banner">UI PREVIEW · Mockup with dummy data · Not a live Salesforce org</div>
+<nav class="sf-nav" aria-label="App navigation"><div class="sf-app"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><g fill="#3E3E3C"><circle cx="3" cy="3" r="2"/><circle cx="9" cy="3" r="2"/><circle cx="15" cy="3" r="2"/><circle cx="3" cy="9" r="2"/><circle cx="9" cy="9" r="2"/><circle cx="15" cy="9" r="2"/><circle cx="3" cy="15" r="2"/><circle cx="9" cy="15" r="2"/><circle cx="15" cy="15" r="2"/></g></svg>Commerce Integration Hub</div>
+<a href="#" data-go="home">Operations</a><a href="#" data-go="order" class="on">Orders</a><a href="#" data-go="product">Products</a><a href="#" data-go="product">Inventory</a><a href="#" data-go="home">Shipments</a><a href="#" data-go="account">Accounts</a><a href="#" data-go="home">Sync Logs</a></nav>
+<div class="sf-main">
+<div class="sf-card sf-pad sf-head">
+<div class="sf-small"><a href="#" data-go="home">Orders</a> › 00001248</div>
+<div class="sf-headrow">
+<div class="sf-icon" style="background:#3CA7D9" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg></div>
+<div class="sf-title"><div class="sf-small">Order</div><div class="sf-h">00001248 · SHP-10234</div></div>
+<div class="sf-btns"><button type="button" disabled>(Simulated) ShipMonk Confirm</button><button type="button">(Simulated) Ship</button><button type="button">(Simulated) Deliver</button><button type="button" class="brand">(Simulated) Post Invoice</button></div>
+</div>
+<div class="sf-hl">
+<div><div class="sf-small">Channel</div><div>Shopify</div></div>
+<div><div class="sf-small">Fulfillment Provider</div><div>ShipMonk</div></div>
+<div><div class="sf-small">Fulfillment Status</div><div>Partially Shipped</div></div>
+<div><div class="sf-small">Order Amount</div><div>$369.97</div></div>
+<div><div class="sf-small">Customer</div><div><a href="#" data-go="account">Madison Carter</a></div></div>
+<div><div class="sf-small">Accounting Status (Simulated)</div><div>Posted · 1 invoice</div></div>
+</div>
+</div>
+<div class="sf-card sf-pad sf-stack" aria-label="Fulfillment path">
+<div class="sf-path"><div class="done">✓ Received</div><div class="done">✓ Confirmed</div><div class="now">Partially Shipped</div><div>Shipped</div><div>Delivered</div></div>
+<div class="sf-small">Confirmed At Oct 15, 11:05 AM · First Shipped At Oct 15, 4:10 PM · Delivered At —</div>
+</div>
+<div class="sf-cols">
+<div class="sf-colmain">
+<div class="sf-card sf-pad">
+<div class="sf-h15" style="margin-bottom:12px">Order Details</div>
+<div class="sf-fields">
+<div><div class="sf-small">Account</div><div><a href="#" data-go="account">Madison Carter</a></div></div>
+<div><div class="sf-small">Bill To Contact</div><div>Madison Carter · madison.carter@example.com</div></div>
+<div><div class="sf-small">Order Date</div><div>Oct 15, 2026, 9:12 AM</div></div>
+<div><div class="sf-small">Payment Status</div><div>Paid</div></div>
+<div><div class="sf-small">Must Ship By</div><div style="color:#8C4B02;font-weight:600">Oct 17, 2026 (today)</div></div>
+<div><div class="sf-small">Must Deliver By</div><div>Oct 22, 2026</div></div>
+<div><div class="sf-small">Shipping Method</div><div>Free over $150</div></div>
+<div><div class="sf-small">Ship To</div><div>1420 Maple Ridge Dr, Plano, TX 75024, US</div></div>
+</div>
+</div>
+<div class="sf-card sf-pad sf-stack" style="gap:14px">
+<div class="sf-row"><span class="sf-h15">Line Items</span><span class="sf-demo">Custom LWC · orderLineStatus</span></div>
+<div class="sf-tiles">
+<div class="sf-tile"><div class="sf-small">Confirmed</div><div class="v">100%</div><div class="bar"><i style="width:100%;background:#2E844A"></i></div><div class="sf-small" style="margin-top:6px">3 of 3 units</div></div>
+<div class="sf-tile" style="box-shadow:inset 0 -3px 0 #A96404"><div class="sf-small">Shipped</div><div class="v">67%</div><div class="bar"><i style="width:67%;background:#A96404"></i></div><div class="sf-small" style="margin-top:6px">2 of 3 units</div></div>
+<div class="sf-tile"><div class="sf-small">Invoiced</div><div class="v">33%</div><div class="bar"><i style="width:33%;background:#0176D3"></i></div><div class="sf-small" style="margin-top:6px">1 of 3 units</div></div>
+</div>
+<div class="sf-filters" aria-label="Filter lines" id="line-filters"></div>
+<div class="sf-scroll"><table class="tbl"><thead><tr><th>#</th><th>SKU</th><th>Description</th><th class="num">Ordered</th><th>Confirmed</th><th>Shipped</th><th>Invoiced</th><th>Line status</th></tr></thead><tbody id="line-rows"></tbody></table></div>
+<div class="sf-note">1 unit of APEX-WHT-07 is waiting: ShipMonk available = 0, 48 inbound. <a href="#" data-go="product">View stock</a></div>
+</div>
+</div>
+<aside class="sf-colside">
+<div class="sf-card sf-pad sf-stack">
+<div class="sf-h15">Alerts (2)</div>
+<div class="sf-box"><div style="font-size:13px;font-weight:700;color:#8C4B02">At Risk: On-Time Shipping</div><div class="sf-small" style="color:#3E3E3C;margin-top:2px">1 unit must ship today, Oct 17 · 14 hours remaining</div></div>
+<div class="sf-box"><div style="font-size:13px;font-weight:700;color:#BA0517">Sync failed: ShipStation tracking</div><div class="sf-small" style="color:#3E3E3C;margin-top:2px">Carrier API timeout on SHP-00463 · Oct 17, 8:02 AM</div><button type="button" class="sf-mini" style="margin-top:8px">Retry sync</button></div>
+</div>
+<div class="sf-card sf-pad">
+<div class="sf-row" style="margin-bottom:10px"><span class="sf-h15">Order Timeline</span><span class="sf-small">from Sync Log</span></div>
+<div id="timeline"></div>
+</div>
+<div class="sf-card sf-pad sf-stack">
+<div class="sf-h15">Shipments (2)</div>
+<div class="sf-box"><div class="sf-row"><b style="font-size:13px">SHP-00451 · 1 of 2</b><span class="pill p-good">Delivered</span></div><div class="sf-small" style="color:#3E3E3C;margin-top:4px">USPS Priority · <a href="#">9405503699300451221</a></div><div class="sf-small" style="margin-top:2px">1 unit · Shimmer Backpack – Teal</div><div class="sf-small">Shipped Oct 15, 4:10 PM · Delivered Oct 17, 10:15 AM</div></div>
+<div class="sf-box"><div class="sf-row"><b style="font-size:13px">SHP-00463 · 2 of 2</b><span class="pill p-info">In Transit</span></div><div class="sf-small" style="color:#3E3E3C;margin-top:4px">UPS Ground · <a href="#">1Z84A7W0034410662</a></div><div class="sf-small" style="margin-top:2px">1 unit · Apex Cheer Shoe – White – 7</div><div class="sf-small">Shipped Oct 16, 2:20 PM · Expected Oct 19</div></div>
+</div>
+<div class="sf-card sf-pad sf-stack">
+<div class="sf-row"><span class="sf-h15">Invoices (1)</span><span class="sf-demo">(Simulated) Accounting Seed</span></div>
+<div class="sf-box sf-row"><div><b style="font-size:13px">INV-00318</b><div class="sf-small">Oct 15, 2026 · Ref AS-BIL-00087</div></div><div style="text-align:right"><b style="font-size:13px">$109.99</b><div style="font-size:12px;color:#22683E">Posted</div></div></div>
+</div>
+</aside>
+</div>
+</div>
+</div></div>
+<div class="notes">
+<section><h3>What the user sees</h3><ul>
+<li>Order header with channel, fulfilment provider, status, amount and simulated accounting status.</li>
+<li>A status path from Received to Delivered.</li>
+<li>Confirmed, Shipped and Invoiced percentages, and a line table with per-line status. Short-shipped lines are amber.</li>
+<li>Alerts for at-risk shipping and failed syncs, and a timeline of every system event on the order.</li>
+<li>Each shipment with carrier and tracking, and each simulated Accounting Seed invoice.</li>
+</ul></section>
+<section><h3>How it is built in Salesforce</h3><table>
+<tr><td>Header and fields</td><td>Highlights Panel (compact layout) and Dynamic Forms</td></tr>
+<tr><td>Path</td><td>Path on Fulfillment Status</td></tr>
+<tr><td>Line items block</td><td>Custom LWC <code>orderLineStatus</code><span class="tag">only code</span></td></tr>
+<tr><td>Alerts</td><td>Formula flags with conditional-visibility Rich Text</td></tr>
+<tr><td>Timeline</td><td>Sync Log related list, sorted by Logged At</td></tr>
+<tr><td>Shipments, invoices</td><td>Dynamic Related Lists</td></tr>
+<tr><td>Simulate buttons</td><td>Quick actions launching screen flows</td></tr>
+</table></section>
+</div>
+</section>
+
+<!-- ================= SCREEN 3 ================= -->
+<section class="screen" id="screen-product" hidden>
+<div class="screen-intro"><h2>Product stock: Apex White 7</h2><p>Stock for one SKU across ShipMonk and Amazon FBA. It explains why the order on screen 2 is short: ShipMonk has 0 available.</p></div>
+<div class="frame"><div class="frame-bar">Salesforce · Commerce Integration Hub · Product APEX-WHT-07</div>
+<div class="sf">
+<div class="sf-banner">UI PREVIEW · Mockup with dummy data · Not a live Salesforce org</div>
+<nav class="sf-nav" aria-label="App navigation"><div class="sf-app"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><g fill="#3E3E3C"><circle cx="3" cy="3" r="2"/><circle cx="9" cy="3" r="2"/><circle cx="15" cy="3" r="2"/><circle cx="3" cy="9" r="2"/><circle cx="9" cy="9" r="2"/><circle cx="15" cy="9" r="2"/><circle cx="3" cy="15" r="2"/><circle cx="9" cy="15" r="2"/><circle cx="15" cy="15" r="2"/></g></svg>Commerce Integration Hub</div>
+<a href="#" data-go="home">Operations</a><a href="#" data-go="order">Orders</a><a href="#" data-go="product" class="on">Products</a><a href="#" data-go="product">Inventory</a><a href="#" data-go="home">Shipments</a><a href="#" data-go="account">Accounts</a><a href="#" data-go="home">Sync Logs</a></nav>
+<div class="sf-main">
+<div class="sf-card sf-pad sf-head">
+<div class="sf-small"><a href="#" data-go="product">Products</a> › APEX-WHT-07</div>
+<div class="sf-headrow">
+<div class="sf-icon" style="background:#B781D3" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c3 0 5-2 6-6l3 1c1 2 4 3 7 3 1.5 0 2 1 2 2v2H3z"/><path d="M3 19h18"/></svg></div>
+<div class="sf-title"><div class="sf-small">Product</div><div class="sf-h">Apex Cheer Shoe – White – 7</div></div>
+<div class="sf-btns"><button type="button">(Simulated) Run FBA Inventory Sync</button></div>
+</div>
+<div class="sf-hl">
+<div><div class="sf-small">SKU</div><div>APEX-WHT-07</div></div>
+<div><div class="sf-small">Family</div><div>Shoes</div></div>
+<div><div class="sf-small">Style</div><div>Apex</div></div>
+<div><div class="sf-small">Colour</div><div>White</div></div>
+<div><div class="sf-small">Size</div><div>7</div></div>
+<div><div class="sf-small">List Price</div><div>$129.99</div></div>
+</div>
+</div>
+<div class="sf-kpis" aria-label="Stock totals, all locations">
+<div class="sf-kpi"><div class="k">ON HAND · ALL LOCATIONS</div><div class="v">48</div></div>
+<div class="sf-kpi"><div class="k">RESERVED</div><div class="v">9</div></div>
+<div class="sf-kpi"><div class="k">AVAILABLE</div><div class="v">39</div></div>
+<div class="sf-kpi"><div class="k">INBOUND</div><div class="v">48</div></div>
+</div>
+<div class="sf-card">
+<div class="sf-tabs" role="tablist" aria-label="Product tabs" data-tabs="product"></div>
+<div data-panels="product"></div>
+</div>
+</div>
+</div></div>
+<div class="notes">
+<section><h3>What the user sees</h3><ul>
+<li>Product details: SKU, style, colour, size, price.</li>
+<li>Totals across locations: on hand, reserved, available, inbound.</li>
+<li>One row per location. Available = on hand minus reserved, with a low-stock flag against the reorder point.</li>
+<li>Open order lines that are waiting on this SKU.</li>
+</ul></section>
+<section><h3>How it is built in Salesforce</h3><table>
+<tr><td>Page</td><td>Product2 record page with Highlights Panel</td></tr>
+<tr><td>Totals</td><td>Number fields on Product2, kept up to date by a flow</td></tr>
+<tr><td>Stock by location</td><td>Dynamic Related List of <code>Inventory_Balance__c</code></td></tr>
+<tr><td>Open order lines</td><td>Related list of Order Products, filtered to open lines</td></tr>
+<tr><td>Sync button</td><td>Quick action launching a screen flow</td></tr>
+</table></section>
+</div>
+</section>
+
+<!-- ================= SCREEN 4 ================= -->
+<section class="screen" id="screen-account" hidden>
+<div class="screen-intro"><h2>Customer: Madison Carter</h2><p>Everything for one shopper: orders, shipments and invoices, plus the order that needs attention. The tabs work.</p></div>
+<div class="frame"><div class="frame-bar">Salesforce · Commerce Integration Hub · Account Madison Carter</div>
+<div class="sf">
+<div class="sf-banner">UI PREVIEW · Mockup with dummy data · Not a live Salesforce org</div>
+<nav class="sf-nav" aria-label="App navigation"><div class="sf-app"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><g fill="#3E3E3C"><circle cx="3" cy="3" r="2"/><circle cx="9" cy="3" r="2"/><circle cx="15" cy="3" r="2"/><circle cx="3" cy="9" r="2"/><circle cx="9" cy="9" r="2"/><circle cx="15" cy="9" r="2"/><circle cx="3" cy="15" r="2"/><circle cx="9" cy="15" r="2"/><circle cx="15" cy="15" r="2"/></g></svg>Commerce Integration Hub</div>
+<a href="#" data-go="home">Operations</a><a href="#" data-go="order">Orders</a><a href="#" data-go="product">Products</a><a href="#" data-go="product">Inventory</a><a href="#" data-go="home">Shipments</a><a href="#" data-go="account" class="on">Accounts</a><a href="#" data-go="home">Sync Logs</a></nav>
+<div class="sf-main">
+<div class="sf-card sf-pad sf-head">
+<div class="sf-small"><a href="#" data-go="account">Accounts</a> › Madison Carter</div>
+<div class="sf-headrow">
+<div class="sf-icon" style="background:#5867E8" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></div>
+<div class="sf-title"><div class="sf-small">Account</div><div class="sf-h">Madison Carter</div></div>
+<div class="sf-btns"><button type="button">Simulate New Order</button></div>
+</div>
+<div class="sf-hl">
+<div><div class="sf-small">Customer Source</div><div>Shopify</div></div>
+<div><div class="sf-small">Rewards Tier</div><div>Gold</div></div>
+<div><div class="sf-small">Total Orders</div><div>6</div></div>
+<div><div class="sf-small">Open Orders</div><div>2</div></div>
+<div><div class="sf-small">Lifetime Spend</div><div>$1,114.91</div></div>
+<div><div class="sf-small">Last Order Date</div><div>Oct 17, 2026</div></div>
+</div>
+</div>
+<div class="sf-cols">
+<div class="sf-colmain"><div class="sf-card">
+<div class="sf-tabs" role="tablist" aria-label="Customer tabs" data-tabs="account"></div>
+<div data-panels="account"></div>
+</div></div>
+<aside class="sf-colside">
+<div class="sf-card sf-pad sf-stack">
+<div class="sf-h15">At-Risk Orders (1)</div>
+<div class="sf-box"><div style="font-size:13px;font-weight:700"><a href="#" data-go="order">SHP-10234</a> · Partially Shipped</div><div style="font-size:12px;color:#8C4B02;margin-top:2px">Must ship by Oct 17 · 1 unit waiting on ShipMonk stock</div></div>
+</div>
+<div class="sf-card sf-pad sf-stack">
+<div class="sf-h15">Orders by Channel</div>
+<div class="chan"><span>Shopify</span><div class="track"><i style="width:100%"></i></div><span>6</span></div>
+<div class="chan"><span>Amazon</span><div class="track"></div><span>0</span></div>
+<div class="sf-small">Amazon buyers are masked, so their orders roll up to the Amazon Customer (Masked) account.</div>
+</div>
+<div class="sf-card sf-pad sf-stack" style="gap:6px">
+<div class="sf-h15">Contacts (1)</div>
+<div style="font-size:13px;font-weight:600">Madison Carter</div>
+<div style="font-size:12px;color:#3E3E3C">madison.carter@example.com</div>
+<div style="font-size:12px;color:#3E3E3C">(214) 555-0187</div>
+</div>
+</aside>
+</div>
+</div>
+</div></div>
+<div class="notes">
+<section><h3>What the user sees</h3><ul>
+<li>Customer source, rewards tier, order counts, lifetime spend and last order date.</li>
+<li>Every order for this customer across channels, with shipments and invoices in tabs.</li>
+<li>The customer's at-risk order, orders by channel and contact details.</li>
+</ul></section>
+<section><h3>How it is built in Salesforce</h3><table>
+<tr><td>Page</td><td>Account record page with Highlights Panel</td></tr>
+<tr><td>Totals</td><td>Number fields on Account, kept up to date by a flow</td></tr>
+<tr><td>Tabs</td><td>Dynamic Related Lists: Orders, Shipments, Invoices</td></tr>
+<tr><td>At-risk orders</td><td>Dynamic Related List filtered on the At Risk flag</td></tr>
+<tr><td>Orders by channel</td><td>Report Chart component filtered to this account</td></tr>
+</table></section>
+</div>
+</section>
+
+<footer>Prepared by Twopir Consulting for internal review. Dummy data only; no live Shopify, Amazon, ShipMonk, ShipStation or Accounting Seed connection.</footer>
+</div>
+
+<script>
+(function(){
+  var cls = {'Received':'p-plain','Confirmed':'p-info','Partially Shipped':'p-warn','Shipped':'p-info','Delivered':'p-good','In Transit':'p-info','Out for Delivery':'p-info','Label Created':'p-plain','Success':'p-good','Failed':'p-bad','Duplicate Blocked':'p-warn','Low stock':'p-warn','OK':'p-good','At risk':'p-warn','Late':'p-bad'};
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function pill(t){return t?'<span class="pill '+(cls[t]||'p-plain')+'">'+esc(t)+'</span>':'';}
+  function link(t,go){return '<a href="#" data-go="'+go+'">'+esc(t)+'</a>';}
+  function table(head,rows){
+    return '<div class="sf-scroll"><table class="tbl"><thead><tr>'+head.map(function(h){return '<th'+(h.n?' class="num"':'')+'>'+esc(h.t)+'</th>';}).join('')+'</tr></thead><tbody>'+
+      rows.map(function(r){return '<tr'+(r.cls?' class="'+r.cls+'"':'')+'>'+r.c.map(function(c,i){return '<td'+(head[i].n?' class="num"':'')+'>'+c+'</td>';}).join('')+'</tr>';}).join('')+'</tbody></table></div>';
+  }
+  function head(t,s){return '<div class="sf-panelhead"><b>'+esc(t)+'</b>'+(s?'<span class="sf-small">'+esc(s)+'</span>':'')+'</div>';}
+
+  var orders=[
+    ['00001246','SHP-10228','Shopify','Chloe Ramirez','ShipMonk','Confirmed','0 / 1','$144.99','Oct 16, 2026','Late'],
+    ['00001248','SHP-10234','Shopify','Madison Carter','ShipMonk','Partially Shipped','2 / 3','$369.97','Oct 17, 2026','At risk'],
+    ['00001249','SHP-10236','Shopify','Harper Wilson','ShipMonk','Confirmed','0 / 1','$149.99','Oct 17, 2026','At risk'],
+    ['00001252','112-4839201-7735102','Amazon','Amazon Customer (Masked)','Amazon FBA','Shipped','1 / 1','$129.99','Oct 17, 2026',''],
+    ['00001251','SHP-10239','Shopify','Ava Thompson','ShipMonk','Received','0 / 2','$259.98','Oct 18, 2026',''],
+    ['00001253','113-2209481-5530217','Amazon','Amazon Customer (Masked)','Amazon FBA','Received','0 / 2','$219.98','Oct 18, 2026',''],
+    ['00001254','SHP-10241','Shopify','Madison Carter','ShipMonk','Received','0 / 1','$149.99','Oct 19, 2026',''],
+    ['00001250','SHP-10237','Shopify','Lily Nguyen','ShipMonk','Shipped','2 / 2','$239.98','Oct 17, 2026','']
+  ];
+  var stock=[
+    ['APEX-WHT-07','Apex Cheer Shoe – White – 7','ShipMonk Warehouse',6,6,0,48,10,'Low stock'],
+    ['GLID-BLK-08','Glide Cheer Shoe – Black – 8','Amazon FBA',9,2,7,0,12,'Low stock'],
+    ['TITN-WHT-06','Titan Mid-Top – White – 6','ShipMonk Warehouse',14,5,9,24,10,'Low stock'],
+    ['SHBP-TEA-OS','Shimmer Backpack – Teal','ShipMonk Warehouse',31,4,27,0,15,'OK'],
+    ['APEX-WHT-07','Apex Cheer Shoe – White – 7','Amazon FBA',42,3,39,0,15,'OK'],
+    ['PULS-WHT-07','Pulse Cheer Shoe – White – 7','ShipMonk Warehouse',120,11,109,0,25,'OK']
+  ];
+  var ships=[
+    ['SHP-00463','SHP-10234','ShipMonk','UPS Ground','1Z84A7W0034410662',1,'Oct 16, 2026','Oct 19, 2026','In Transit'],
+    ['SHP-00466','112-4839201-7735102','Amazon FBA','Amazon Logistics','TBA318845220019',1,'Oct 16, 2026','Oct 18, 2026','Out for Delivery'],
+    ['SHP-00465','SHP-10237','ShipMonk','USPS Priority','9405503699300465221',2,'Oct 16, 2026','Oct 18, 2026','In Transit'],
+    ['SHP-00451','SHP-10234','ShipMonk','USPS Priority','9405503699300451221',1,'Oct 15, 2026','Oct 17, 2026','Delivered'],
+    ['SHP-00449','SHP-10221','ShipMonk','FedEx Ground','784512093318',2,'Oct 14, 2026','Oct 16, 2026','Delivered'],
+    ['SHP-00467','SHP-10238','ShipMonk','UPS Ground','1Z84A7W0034410689',1,'Oct 17, 2026','Oct 20, 2026','Label Created']
+  ];
+  var logs=[
+    ['Oct 17, 8:02 AM','ShipStation','Tracking update','SHP-10234','Failed','Carrier API timeout on shipment SHP-00463. No tracking update applied.',true],
+    ['Oct 17, 7:45 AM','Amazon FBA','Inventory sync','GLID-BLK-08','Failed','Amazon SKU not mapped to a Salesforce product.',true],
+    ['Oct 17, 6:30 AM','Accounting Seed','Invoice post (simulated)','SHP-10229','Failed','Revenue GL account missing for channel Amazon (demo rule).',true],
+    ['Oct 17, 9:20 AM','Shopify','Order received','SHP-10241','Success','Order created. 1 unit reserved at ShipMonk Warehouse.',false],
+    ['Oct 15, 11:06 AM','Shopify','Order received','SHP-10234','Duplicate Blocked','Same External Order ID received again. No new order or reservation created.',false],
+    ['Oct 16, 2:20 PM','ShipStation','Label and tracking','SHP-10234','Success','Shipment SHP-00463 created, UPS Ground.',false],
+    ['Oct 17, 9:05 AM','Amazon','Order received','113-2209481-5530217','Success','FBA order created. 2 units reserved at Amazon FBA.',false]
+  ];
+  var customers=[
+    ['Amazon Customer (Masked)','Amazon','—',1284,41,'$163,207.40','Oct 17, 2026'],
+    ['Madison Carter','Shopify','Gold',6,2,'$1,114.91','Oct 17, 2026'],
+    ['Ava Thompson','Shopify','Silver',4,1,'$664.95','Oct 17, 2026'],
+    ['Chloe Ramirez','Shopify','Silver',3,1,'$424.97','Oct 14, 2026'],
+    ['Lily Nguyen','Shopify','Bronze',2,1,'$479.96','Oct 15, 2026']
+  ];
+  var retry='<button type="button" class="sf-mini">Retry</button>';
+
+  var panels={
+    home:[
+      {label:'Orders (142 open)',html:function(){return head('Open orders · Shopify and Amazon','8 of 142 shown · sorted by Must Ship By')+table(
+        [{t:'Order'},{t:'External Order ID'},{t:'Channel'},{t:'Customer'},{t:'Fulfilment'},{t:'Status'},{t:'Units shipped',n:1},{t:'Amount',n:1},{t:'Must Ship By'},{t:'Alert'}],
+        orders.map(function(o){return {c:[link(o[0],'order'),esc(o[1]),o[2],esc(o[3]),o[4],pill(o[5]),o[6],o[7],o[8],pill(o[9])]};}));}},
+      {label:'Stock by location',html:function(){return head('Stock by SKU and location · low stock first','ShipMonk Warehouse and Amazon FBA')+table(
+        [{t:'SKU'},{t:'Product'},{t:'Location'},{t:'On hand',n:1},{t:'Reserved',n:1},{t:'Available',n:1},{t:'Inbound',n:1},{t:'Reorder point',n:1},{t:'Stock'}],
+        stock.map(function(s){return {c:[link(s[0],'product'),esc(s[1]),s[2],s[3],s[4],'<b>'+s[5]+'</b>',s[6],s[7],pill(s[8])]};}));}},
+      {label:'Shipments',html:function(){return head('Shipments · last 3 days','Tracking from ShipStation (simulated) and Amazon')+table(
+        [{t:'Shipment'},{t:'Order'},{t:'Provider'},{t:'Carrier'},{t:'Tracking number'},{t:'Units',n:1},{t:'Shipped'},{t:'Expected delivery'},{t:'Status'}],
+        ships.map(function(s){return {c:[s[0],link(s[1],'order'),s[2],s[3],s[4],s[5],s[6],s[7],pill(s[8])]};}));}},
+      {label:'Sync logs (3 failed)',html:function(){return head('Sync log · failed first','Every simulated system message lands here')+table(
+        [{t:'Logged at'},{t:'System'},{t:'Event'},{t:'Order / record'},{t:'Status'},{t:'Message'},{t:'Action'}],
+        logs.map(function(l){return {c:[l[0],l[1],esc(l[2]),link(l[3],'order'),pill(l[4]),'<span style="white-space:normal;display:inline-block;min-width:240px">'+esc(l[5])+'</span>',l[6]?retry:'']};}));}},
+      {label:'Customers',html:function(){return head('Customers · by lifetime spend','Amazon buyers are masked, so Amazon orders roll up to one account')+table(
+        [{t:'Account'},{t:'Source'},{t:'Rewards tier'},{t:'Total orders',n:1},{t:'Open orders',n:1},{t:'Lifetime spend',n:1},{t:'Last order'}],
+        customers.map(function(c){return {c:[link(c[0],'account'),c[1],c[2],c[3],c[4],c[5],c[6]]};}));}}
+    ],
+    product:[
+      {label:'Stock by location',html:function(){return head('Inventory Balances (2)')+table(
+        [{t:'Location'},{t:'Location type'},{t:'On hand',n:1},{t:'Reserved',n:1},{t:'Available',n:1},{t:'Inbound',n:1},{t:'Reorder point',n:1},{t:'Stock'},{t:'Last updated'}],
+        [{cls:'amber',c:['ShipMonk Warehouse','3PL Warehouse',6,6,'<b style="color:#BA0517">0</b>',48,10,pill('Low stock'),'Oct 17, 9:20 AM']},
+         {c:['Amazon FBA','Marketplace Fulfilment',42,3,'<b>39</b>',0,15,pill('OK'),'Oct 17, 7:45 AM']}])+
+        '<div class="sf-small" style="padding:12px 16px">Available = On hand − Reserved. Shopify orders reserve at ShipMonk Warehouse; Amazon orders reserve at Amazon FBA.</div>';}},
+      {label:'Open order lines',html:function(){return head('Open order lines for this SKU (4)')+table(
+        [{t:'Order'},{t:'Channel'},{t:'Fulfilment'},{t:'Ordered',n:1},{t:'Shipped',n:1},{t:'Line status'},{t:'Must Ship By'}],
+        [['SHP-10234','Shopify','ShipMonk',2,1,'Partially Shipped','Oct 17, 2026'],['SHP-10239','Shopify','ShipMonk',2,0,'Pending','Oct 18, 2026'],['SHP-10236','Shopify','ShipMonk',1,0,'Confirmed','Oct 17, 2026'],['113-2209481-5530217','Amazon','Amazon FBA',2,0,'Pending','Oct 18, 2026']]
+        .map(function(r){return {c:[link(r[0],'order'),r[1],r[2],r[3],r[4],r[5],r[6]]};}));}}
+    ],
+    account:[
+      {label:'Orders (6)',html:function(){return table(
+        [{t:'Order'},{t:'External Order ID'},{t:'Channel'},{t:'Fulfilment'},{t:'Status'},{t:'Amount',n:1},{t:'Order date'}],
+        [['00001254','SHP-10241','Received','$149.99','Oct 17, 2026'],['00001248','SHP-10234','Partially Shipped','$369.97','Oct 15, 2026'],['00001192','SHP-10187','Delivered','$144.99','Sep 28, 2026'],['00001107','SHP-10102','Delivered','$109.99','Aug 30, 2026'],['00001060','SHP-10055','Delivered','$199.98','Aug 12, 2026'],['00001017','SHP-10012','Delivered','$139.99','Jul 21, 2026']]
+        .map(function(r){return {c:[link(r[0],'order'),r[1],'Shopify','ShipMonk',pill(r[2]),r[3],r[4]]};}));}},
+      {label:'Shipments (6)',html:function(){return table(
+        [{t:'Shipment'},{t:'Order'},{t:'Carrier'},{t:'Tracking number'},{t:'Status'},{t:'Expected / delivered'}],
+        [['SHP-00463','SHP-10234','UPS Ground','1Z84A7W0034410662','In Transit','Expected Oct 19'],['SHP-00451','SHP-10234','USPS Priority','9405503699300451221','Delivered','Oct 17, 2026'],['SHP-00398','SHP-10187','UPS Ground','1Z84A7W0034409871','Delivered','Oct 2, 2026'],['SHP-00311','SHP-10102','USPS Priority','9405503699300311904','Delivered','Sep 3, 2026'],['SHP-00262','SHP-10055','FedEx Ground','784512077105','Delivered','Aug 15, 2026'],['SHP-00205','SHP-10012','UPS Ground','1Z84A7W0034406623','Delivered','Jul 24, 2026']]
+        .map(function(r){return {c:[r[0],link(r[1],'order'),r[2],r[3],pill(r[4]),r[5]]};}));}},
+      {label:'Invoices (5)',html:function(){return '<div style="padding:12px 16px 0"><span class="sf-demo">(Simulated) Accounting Seed</span></div>'+table(
+        [{t:'Invoice'},{t:'Order'},{t:'Date'},{t:'Amount',n:1},{t:'Status'}],
+        [['INV-00318','SHP-10234','Oct 15, 2026','$109.99','Posted'],['INV-00284','SHP-10187','Sep 29, 2026','$144.99','Paid'],['INV-00221','SHP-10102','Aug 31, 2026','$109.99','Paid'],['INV-00180','SHP-10055','Aug 13, 2026','$199.98','Paid'],['INV-00131','SHP-10012','Jul 22, 2026','$139.99','Paid']]
+        .map(function(r){return {c:[r[0],link(r[1],'order'),r[2],r[3],r[4]]};}));}}
+    ]
+  };
+
+  Object.keys(panels).forEach(function(key){
+    var bar=document.querySelector('[data-tabs="'+key+'"]'), box=document.querySelector('[data-panels="'+key+'"]');
+    function show(i){
+      Array.prototype.forEach.call(bar.children,function(b,j){b.setAttribute('aria-selected',j===i?'true':'false');});
+      box.innerHTML=panels[key][i].html();
+    }
+    panels[key].forEach(function(p,i){
+      var b=document.createElement('button'); b.type='button'; b.setAttribute('role','tab'); b.textContent=p.label;
+      b.addEventListener('click',function(){show(i);}); bar.appendChild(b);
+    });
+    show(0);
+  });
+
+  /* order lines + filters */
+  var lines=[
+    {n:'01',sku:'APEX-WHT-07',d:'Apex Cheer Shoe – White – 7',q:2,c:2,s:1,i:0,st:'Partially Shipped'},
+    {n:'02',sku:'SHBP-TEA-OS',d:'Shimmer Backpack – Teal',q:1,c:1,s:1,i:1,st:'Shipped'}
+  ];
+  function qp(v,q){return '<span class="pill '+(v>=q?'p-good':v>0?'p-warn':'p-plain')+'">'+v+' / '+q+'</span>';}
+  var filters=[{id:'all',l:'Total: 2'},{id:'Pending',l:'Pending: 0'},{id:'Partially Shipped',l:'Partially Shipped: 1'},{id:'Shipped',l:'Shipped: 1'}];
+  var fbox=document.getElementById('line-filters'), rows=document.getElementById('line-rows');
+  function renderLines(f){
+    Array.prototype.forEach.call(fbox.children,function(b){b.setAttribute('aria-pressed',b.dataset.f===f?'true':'false');});
+    var list=lines.filter(function(l){return f==='all'||l.st===f;});
+    rows.innerHTML=list.length?list.map(function(l){return '<tr'+(l.st==='Partially Shipped'?' class="amber"':'')+'><td>'+l.n+'</td><td>'+link(l.sku,'product')+'</td><td>'+esc(l.d)+'</td><td class="num">'+l.q+'</td><td>'+qp(l.c,l.q)+'</td><td>'+qp(l.s,l.q)+'</td><td>'+qp(l.i,l.q)+'</td><td>'+l.st+'</td></tr>';}).join(''):
+      '<tr><td colspan="8" style="color:#5C5C5C">No lines with this status.</td></tr>';
+  }
+  filters.forEach(function(f){var b=document.createElement('button');b.type='button';b.dataset.f=f.id;b.textContent=f.l;b.addEventListener('click',function(){renderLines(f.id);});fbox.appendChild(b);});
+  renderLines('all');
+
+  /* timeline */
+  var dot={ok:'#2E844A',warn:'#A96404',bad:'#BA0517',todo:'#C9C9C9'}, ink={ok:'#181818',warn:'#8C4B02',bad:'#BA0517',todo:'#5C5C5C'};
+  var tl=[
+    ['Order received','Shopify','Oct 15, 9:12 AM','ok'],['3 units reserved at ShipMonk Warehouse','Salesforce','Oct 15, 9:13 AM','ok'],
+    ['Fulfilment request sent','ShipMonk','Oct 15, 9:40 AM','ok'],['Order confirmed by 3PL','ShipMonk','Oct 15, 11:05 AM','ok'],
+    ['Duplicate order webhook blocked','Shopify','Oct 15, 11:06 AM','warn'],['Shipment 1 shipped (USPS Priority)','ShipStation','Oct 15, 4:10 PM','ok'],
+    ['Invoice INV-00318 posted (simulated)','Accounting Seed','Oct 15, 4:30 PM','ok'],['Shipment 2 shipped (UPS Ground)','ShipStation','Oct 16, 2:20 PM','ok'],
+    ['Tracking update failed: carrier timeout','ShipStation','Oct 17, 8:02 AM','bad'],['Shipment 1 delivered','ShipStation','Oct 17, 10:15 AM','ok'],
+    ['Order delivered','Pending','not yet','todo']
+  ];
+  document.getElementById('timeline').innerHTML=tl.map(function(e){return '<div class="tl"><i style="background:'+dot[e[3]]+'"></i><div><b style="color:'+ink[e[3]]+'">'+esc(e[0])+'</b><span class="sf-small">'+e[1]+' · '+e[2]+'</span></div></div>';}).join('');
+
+  /* screen switching */
+  var tabs=document.querySelectorAll('.switch button');
+  function go(name){
+    document.querySelectorAll('.screen').forEach(function(s){s.hidden=s.id!=='screen-'+name;});
+    tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.screen===name?'true':'false');});
+    try{localStorage.setItem('ecom-preview-screen',name);}catch(e){}
+    document.querySelector('.switch').scrollIntoView({block:'start'});
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){go(t.dataset.screen);});});
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-go]');if(a){e.preventDefault();go(a.dataset.go);}});
+  try{var saved=localStorage.getItem('ecom-preview-screen');if(saved&&document.getElementById('screen-'+saved)){document.querySelectorAll('.screen').forEach(function(s){s.hidden=s.id!=='screen-'+saved;});tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.screen===saved?'true':'false');});}}catch(e){}
+})();
+</script>
+</body>
+</html>

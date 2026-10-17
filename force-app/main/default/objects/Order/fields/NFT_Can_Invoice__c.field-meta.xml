@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Can_Invoice__c</fullName>
+<formula>NFT_Units_Shipped__c &gt; NFT_Units_Invoiced__c</formula>
+<formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+<label>Can Invoice</label>
+<type>Checkbox</type>
+</CustomField>

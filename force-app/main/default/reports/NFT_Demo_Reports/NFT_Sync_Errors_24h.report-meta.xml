@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+<columns><field>NFT_Sync_Log__c$Name</field></columns><columns><field>NFT_Sync_Log__c$NFT_Event__c</field></columns><columns><field>NFT_Sync_Log__c$NFT_Record_Ref__c</field></columns><columns><field>NFT_Sync_Log__c$NFT_Message__c</field></columns>
+<description>NFT demo report</description>
+<filter><criteriaItems><column>NFT_Sync_Log__c$NFT_Status__c</column><columnToColumn>false</columnToColumn><isUnlocked>true</isUnlocked><operator>equals</operator><value>Failed</value></criteriaItems><criteriaItems><column>NFT_Sync_Log__c$NFT_Logged_At__c</column><columnToColumn>false</columnToColumn><isUnlocked>true</isUnlocked><operator>equals</operator><value>LAST_N_DAYS:1</value></criteriaItems><language>en_US</language></filter>
+<format>Summary</format>
+<groupingsDown><dateGranularity>Day</dateGranularity><field>NFT_Sync_Log__c$NFT_System__c</field><sortOrder>Asc</sortOrder></groupingsDown>
+<name>NFT Sync Errors 24h</name>
+<params><name>co</name><value>1</value></params>
+<reportType>NFT_Sync_Logs__c</reportType>
+<scope>organization</scope>
+<showDetails>false</showDetails>
+<showGrandTotal>true</showGrandTotal>
+<showSubTotals>true</showSubTotals>
+<timeFrameFilter><dateColumn>NFT_Sync_Log__c$NFT_Logged_At__c</dateColumn><interval>INTERVAL_CUSTOM</interval></timeFrameFilter>
+</Report>

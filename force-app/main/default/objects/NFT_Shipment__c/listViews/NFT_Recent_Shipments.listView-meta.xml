@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Recent_Shipments</fullName>
+<columns>NAME</columns><columns>NFT_Order__c</columns><columns>NFT_Provider__c</columns><columns>NFT_Carrier__c</columns><columns>NFT_Tracking_Number__c</columns><columns>NFT_Units__c</columns><columns>NFT_Shipped_At__c</columns><columns>NFT_Expected_Delivery__c</columns><columns>NFT_Status__c</columns>
+<filterScope>Everything</filterScope>
+<filters><field>NFT_Shipped_At__c</field><operation>equals</operation><value>LAST_N_DAYS:3</value></filters>
+<label>NFT Recent Shipments</label>
+</ListView>

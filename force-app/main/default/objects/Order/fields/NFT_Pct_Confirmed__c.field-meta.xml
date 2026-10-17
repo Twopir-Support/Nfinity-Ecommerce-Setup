@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Pct_Confirmed__c</fullName>
+<formula>IF(NFT_Total_Units__c = 0, 0, NFT_Units_Confirmed__c / NFT_Total_Units__c)</formula>
+<formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+<label>% Confirmed</label>
+<precision>3</precision>
+<scale>0</scale>
+<type>Percent</type>
+</CustomField>

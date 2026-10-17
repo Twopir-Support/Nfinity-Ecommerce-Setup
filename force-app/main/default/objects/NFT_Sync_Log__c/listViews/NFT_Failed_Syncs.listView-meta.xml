@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Failed_Syncs</fullName>
+<columns>NFT_Logged_At__c</columns><columns>NFT_System__c</columns><columns>NFT_Event__c</columns><columns>NFT_Record_Ref__c</columns><columns>NFT_Status__c</columns><columns>NFT_Message__c</columns>
+<filterScope>Everything</filterScope>
+<filters><field>NFT_Status__c</field><operation>equals</operation><value>Failed</value></filters>
+<label>NFT Failed Syncs</label>
+</ListView>

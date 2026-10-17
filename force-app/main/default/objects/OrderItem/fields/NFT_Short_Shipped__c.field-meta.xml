@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Short_Shipped__c</fullName>
+<formula>AND(NFT_Qty_Shipped__c &gt; 0, NFT_Qty_Shipped__c &lt; Quantity)</formula>
+<formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+<label>Short Shipped</label>
+<type>Checkbox</type>
+</CustomField>

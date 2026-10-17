@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Units_Shipped_Label__c</fullName>
+<formula>TEXT(NFT_Units_Shipped__c) &amp; " / " &amp; TEXT(NFT_Total_Units__c)</formula>
+<formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+<label>Units Shipped Label</label>
+<type>Text</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+<actionOverrides><actionName>View</actionName><comment>NFT demo page</comment><content>NFT_Order_Record_Page</content><formFactor>Large</formFactor><skipRecordTypeSelect>false</skipRecordTypeSelect><type>Flexipage</type><pageOrSobjectType>Order</pageOrSobjectType></actionOverrides><actionOverrides><actionName>View</actionName><comment>NFT demo page</comment><content>NFT_Product_Record_Page</content><formFactor>Large</formFactor><skipRecordTypeSelect>false</skipRecordTypeSelect><type>Flexipage</type><pageOrSobjectType>Product2</pageOrSobjectType></actionOverrides><actionOverrides><actionName>View</actionName><comment>NFT demo page</comment><content>NFT_Account_Record_Page</content><formFactor>Large</formFactor><skipRecordTypeSelect>false</skipRecordTypeSelect><type>Flexipage</type><pageOrSobjectType>Account</pageOrSobjectType></actionOverrides>
+<brand><headerColor>#0176D3</headerColor><shouldOverrideOrgTheme>false</shouldOverrideOrgTheme></brand>
+<description>NFT demo: Commerce Integration Hub for Shopify, Amazon/FBA, ShipMonk, ShipStation and Accounting Seed (all simulated).</description>
+<formFactors>Large</formFactors>
+<isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+<isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+<isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+<label>Commerce Integration Hub</label>
+<navType>Standard</navType>
+<tabs>NFT_Operations_Home</tabs><tabs>standard-Order</tabs><tabs>standard-Product2</tabs><tabs>NFT_Inventory_Balance__c</tabs><tabs>NFT_Shipment__c</tabs><tabs>standard-Account</tabs><tabs>NFT_Sync_Log__c</tabs><tabs>NFT_Invoice__c</tabs><tabs>standard-report</tabs><tabs>standard-Dashboard</tabs>
+<uiType>Lightning</uiType>
+<utilityBar>NFT_Commerce_Hub_Utility_Bar</utilityBar>
+</CustomApplication>

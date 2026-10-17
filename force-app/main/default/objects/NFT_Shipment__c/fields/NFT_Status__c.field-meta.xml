@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Status__c</fullName>
+<label>Status</label>
+<required>false</required>
+<type>Picklist</type>
+<valueSet><restricted>true</restricted><valueSetDefinition><sorted>false</sorted><value><fullName>Label Created</fullName><default>false</default><label>Label Created</label></value><value><fullName>In Transit</fullName><default>false</default><label>In Transit</label></value><value><fullName>Out for Delivery</fullName><default>false</default><label>Out for Delivery</label></value><value><fullName>Delivered</fullName><default>false</default><label>Delivered</label></value><value><fullName>Exception</fullName><default>false</default><label>Exception</label></value></valueSetDefinition></valueSet>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_System__c</fullName>
+<label>System</label>
+<required>false</required>
+<type>Picklist</type>
+<valueSet><restricted>true</restricted><valueSetDefinition><sorted>false</sorted><value><fullName>Shopify</fullName><default>false</default><label>Shopify</label></value><value><fullName>Amazon</fullName><default>false</default><label>Amazon</label></value><value><fullName>Amazon FBA</fullName><default>false</default><label>Amazon FBA</label></value><value><fullName>ShipMonk</fullName><default>false</default><label>ShipMonk</label></value><value><fullName>ShipStation</fullName><default>false</default><label>ShipStation</label></value><value><fullName>Accounting Seed</fullName><default>false</default><label>Accounting Seed</label></value><value><fullName>Salesforce</fullName><default>false</default><label>Salesforce</label></value></valueSetDefinition></valueSet>
+</CustomField>

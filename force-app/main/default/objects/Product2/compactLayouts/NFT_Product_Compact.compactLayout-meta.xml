@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Product_Compact</fullName>
+<fields>Name</fields>
+<fields>ProductCode</fields>
+<fields>NFT_Family__c</fields>
+<fields>NFT_Style__c</fields>
+<fields>NFT_Colour__c</fields>
+<fields>NFT_Size__c</fields>
+<label>NFT Product Compact</label>
+</CompactLayout>

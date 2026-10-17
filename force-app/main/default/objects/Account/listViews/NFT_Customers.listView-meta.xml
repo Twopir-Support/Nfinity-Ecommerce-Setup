@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Customers</fullName>
+<columns>ACCOUNT.NAME</columns><columns>NFT_Customer_Source__c</columns><columns>NFT_Rewards_Tier__c</columns><columns>NFT_Total_Orders__c</columns><columns>NFT_Open_Orders__c</columns><columns>NFT_Lifetime_Spend__c</columns><columns>NFT_Last_Order_Date__c</columns>
+<filterScope>Everything</filterScope>
+<filters><field>NFT_Customer_Source__c</field><operation>equals</operation><value>Shopify,Amazon</value></filters>
+<label>NFT Customers</label>
+</ListView>

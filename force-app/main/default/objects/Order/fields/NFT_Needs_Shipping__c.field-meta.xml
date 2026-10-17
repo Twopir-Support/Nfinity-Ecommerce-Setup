@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Needs_Shipping__c</fullName>
+<formula>OR(ISPICKVAL(NFT_Fulfillment_Status__c, "Received"), ISPICKVAL(NFT_Fulfillment_Status__c, "Confirmed"), ISPICKVAL(NFT_Fulfillment_Status__c, "Partially Shipped"))</formula>
+<formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+<label>Needs Shipping</label>
+<type>Checkbox</type>
+</CustomField>

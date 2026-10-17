@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+<fullName>NFT_Low_Stock__c</fullName>
+<formula>NFT_Qty_Available__c &lt;= NFT_Reorder_Point__c</formula>
+<formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+<label>Low Stock</label>
+<type>Checkbox</type>
+</CustomField>

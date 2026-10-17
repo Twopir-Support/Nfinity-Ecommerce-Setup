@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+<actionCalls><name>Run_Simulation</name><label>Run Simulation</label><locationX>176</locationX><locationY>266</locationY><actionName>NFT_FbaSyncAction</actionName><actionType>apex</actionType><connector><targetReference>Result_Screen</targetReference></connector><faultConnector><targetReference>Error_Screen</targetReference></faultConnector><flowTransactionModel>CurrentTransaction</flowTransactionModel><inputParameters><name>productId</name><value><elementReference>recordId</elementReference></value></inputParameters><nameSegment>NFT_FbaSyncAction</nameSegment><outputParameters><assignToReference>resultMessage</assignToReference><name>message</name></outputParameters><outputParameters><assignToReference>resultRecordId</assignToReference><name>recordId</name></outputParameters></actionCalls>
+<apiVersion>62.0</apiVersion>
+
+<description>NFT demo: simulates an Amazon FBA inventory sync for one product.</description>
+<environments>Default</environments>
+<interviewLabel>NFT Simulate FBA Inventory Sync {!$Flow.CurrentDateTime}</interviewLabel>
+<label>NFT Simulate FBA Inventory Sync</label>
+<processMetadataValues><name>BuilderType</name><value><stringValue>LightningFlowBuilder</stringValue></value></processMetadataValues>
+<processMetadataValues><name>CanvasMode</name><value><stringValue>AUTO_LAYOUT_CANVAS</stringValue></value></processMetadataValues>
+<processMetadataValues><name>OriginBuilderType</name><value><stringValue>LightningFlowBuilder</stringValue></value></processMetadataValues>
+<processType>Flow</processType>
+<screens><name>Intro_Screen</name><label>Simulate</label><locationX>176</locationX><locationY>158</locationY><allowBack>false</allowBack><allowFinish>true</allowFinish><allowPause>false</allowPause><connector><targetReference>Run_Simulation</targetReference></connector><fields><name>IntroText</name><fieldText>&lt;p&gt;&lt;b&gt;(Simulated) Run an FBA inventory sync for this product&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="color: rgb(90, 27, 169);"&gt;&lt;b&gt;(Simulated)&lt;/b&gt;&lt;/span&gt; No external system is called. Dummy data only.&lt;/p&gt;</fieldText><fieldType>DisplayText</fieldType></fields><showFooter>true</showFooter><showHeader>true</showHeader></screens><screens><name>Result_Screen</name><label>Done</label><locationX>176</locationX><locationY>374</locationY><allowBack>false</allowBack><allowFinish>true</allowFinish><allowPause>false</allowPause><fields><name>ResultText</name><fieldText>&lt;p&gt;&lt;b&gt;{!resultMessage}&lt;/b&gt;&lt;/p&gt;</fieldText><fieldType>DisplayText</fieldType></fields><showFooter>true</showFooter><showHeader>true</showHeader></screens><screens><name>Error_Screen</name><label>Could not complete</label><locationX>440</locationX><locationY>374</locationY><allowBack>false</allowBack><allowFinish>true</allowFinish><allowPause>false</allowPause><fields><name>ErrorText</name><fieldText>&lt;p&gt;&lt;span style="color: rgb(186, 5, 23);"&gt;&lt;b&gt;The simulation did not complete.&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;{!$Flow.FaultMessage}&lt;/p&gt;</fieldText><fieldType>DisplayText</fieldType></fields><showFooter>true</showFooter><showHeader>true</showHeader></screens>
+<start><locationX>50</locationX><locationY>0</locationY><connector><targetReference>Intro_Screen</targetReference></connector></start>
+<status>Active</status>
+<variables><name>recordId</name><dataType>String</dataType><isCollection>false</isCollection><isInput>true</isInput><isOutput>false</isOutput></variables>
+<variables><name>resultMessage</name><dataType>String</dataType><isCollection>false</isCollection><isInput>false</isInput><isOutput>true</isOutput></variables>
+<variables><name>resultRecordId</name><dataType>String</dataType><isCollection>false</isCollection><isInput>false</isInput><isOutput>true</isOutput></variables>
+</Flow>
